@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import { Lists } from "./Lists";
+import { CurrentList } from "./CurrentList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-container">
+      <h1 className="main-heading">To Do Lists</h1>
+      <div className="dark-mode-toggle">
+        <p className="dark-mode active">Dark Mode</p>
+        <p className="light-mode inactive">Light Mode</p>
+      </div>
+      <div className="lists-container">
+        <button className="lists-toggle-btn btn">Lists</button>
+        <Lists />
+        <CurrentList />
+      </div>
     </div>
   );
 }

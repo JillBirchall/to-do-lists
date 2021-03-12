@@ -1,38 +1,252 @@
-.App {
+:root {
+  --background-colour: #00c6f9;
+  --list-background-colour: white;
+  --toggle-button-colour: #0332cb;
+  --delete-all-btn-colour: #ff2c2c;
+  --delete-completed-btn-colour: #ff8000;
+  --heading-font-family: "Montserrat", sans-serif;
+  --list-item-font-family: "Quicksand", sans-serif;
+  --green-icon-colour: #009f00;
+  --list-hover-colour: #a9bbf7;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-heading {
+  color: rgb(8, 0, 119);
+  margin: 0px 5px;
+}
+
+.main-heading,
+.heading,
+.sub-heading {
   text-align: center;
+  font-family: var(--heading-font-family);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-container {
+  background-color: var(--background-colour);
+  height: 100vh;
+  width: 100vw;
+  padding: 2% 5% 2% 5%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.lists-container {
+  display: flex;
+  height: 90%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dark-mode-toggle {
+  font-size: 1em;
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  font-family: var(--heading-font-family);
+}
+
+.dark-mode-toggle .inactive {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dark-mode-toggle .active:hover {
+  cursor: pointer;
+  text-shadow: 0 0 2px rgb(0, 225, 255), 0 0 5px rgb(255, 255, 255);
+}
+
+.light-mode {
+  margin-left: 1%;
+}
+
+.btn {
+  border: none;
+  color: white;
+  font-family: var(--heading-font-family);
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.lists-toggle-btn {
+  display: none;
+}
+
+.list-names-container {
+  width: 30%;
+  margin-bottom: 10px;
+  background-color: var(--list-background-colour);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.list-name-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  padding-top: 20px;
+  font-family: var(--list-item-font-family);
+}
+
+.list-name-container:hover {
+  background-color: var(--list-hover-colour);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.lists {
+  overflow-y: scroll;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.list-name:hover {
+  cursor: pointer;
+}
+
+.icons .icon {
+  margin: 0 5px;
+}
+
+.current-list-container {
+  width: 70%;
+  background-color: var(--list-background-colour);
+  margin-left: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-areas: "listname listname" "todolist completed" "deletebuttons deletebuttons";
+}
+
+.current-list-name {
+  grid-area: listname;
+  font-family: var(--heading-font-family);
+  text-align: center;
+  margin-top: 1%;
+}
+
+.todolist {
+  grid-area: todolist;
+  overflow-y: auto;
+}
+
+.completed-items {
+  grid-area: completed;
+  overflow-y: auto;
+}
+
+.delete-btns {
+  grid-area: deletebuttons;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.delete-btns .btn {
+  height: 30px;
+  width: 180px;
+}
+
+.delete-all-btn {
+  background-color: var(--delete-all-btn-colour);
+}
+
+.delete-completed-btn {
+  background-color: var(--delete-completed-btn-colour);
+}
+
+.add-new-list {
+  display: flex;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.add-icon {
+  color: var(--green-icon-colour);
+  font-size: 1.8em;
+}
+
+@media (orientation: portrait) and (max-width: 650px) {
+  .main-heading {
+    margin-bottom: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .dark-mode-toggle {
+    margin-bottom: 10px;
+  }
+
+  .lists-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    height: 100%;
+  }
+
+  .lists-toggle-btn {
+    display: block;
+    height: 30px;
+    width: 100%;
+    background-color: var(--toggle-button-colour);
+  }
+
+  .list-names-container {
+    display: none;
+    height: 80%;
+    width: 100%;
+  }
+
+  .current-list-container {
+    width: 100%;
+    height: 80%;
+    margin-left: 0px;
+    margin-top: 3%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: "listname" "todolist" "completed" "deletebuttons";
+  }
+
+  .delete-btns {
+    font-size: 10px;
+  }
+
+  .delete-btns .btn {
+    height: 30px;
+    width: 120px;
+  }
+}
+
+@media (max-height: 350px) {
+  .dark-mode-toggle {
+    font-size: 10px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    font-family: var(--heading-font-family);
+  }
+
+  .main-heading {
+    font-size: 24px;
+  }
+
+  .current-list-name {
+    font-size: 20px;
+  }
+
+  .sub-heading {
+    font-size: 14px;
   }
 }
