@@ -1,7 +1,7 @@
 import React from "react";
 import { ListName } from "./ListName";
 
-export const Lists = ({ isListsOpen }) => {
+export const Lists = ({ isListsOpen, lists }) => {
   return (
     <div
       className={
@@ -24,19 +24,9 @@ export const Lists = ({ isListsOpen }) => {
         <span className="material-icons add-icon icon">add</span>
       </div>
       <div className="lists">
-        <ListName />
-        <ListName />
-        <ListName />
-        <ListName />
-        <ListName />
-        <ListName />
-        <ListName />
-        <ListName />
-        <ListName />
-        <ListName />
-        <ListName />
-        <ListName />
-        <ListName />
+        {lists.map((list) => {
+          return <ListName listname={list.listName} key={list.id} />;
+        })}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { ToDoItem } from "./ToDoItem";
 
-export const CurrentList = () => {
+export const CurrentList = ({ list }) => {
   return (
     <div className="current-list-container">
       <h2 className="current-list-name">Current List</h2>
@@ -15,38 +15,33 @@ export const CurrentList = () => {
           <span className="material-icons add-icon icon">add</span>
         </div>
         <div className="list">
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
+          {list.items.map((item) => {
+            if (!item.checked) {
+              return (
+                <ToDoItem
+                  itemName={item.itemName}
+                  checked={item.checked}
+                  key={item.id}
+                />
+              );
+            }
+          })}
         </div>
       </div>
       <div className="completed-items">
         <h3 className="sub-heading">Completed Items</h3>
         <div className="list">
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
-          <ToDoItem />
+          {list.items.map((item) => {
+            if (item.checked) {
+              return (
+                <ToDoItem
+                  itemName={item.itemName}
+                  checked={item.checked}
+                  key={item.id}
+                />
+              );
+            }
+          })}
         </div>
       </div>
       <div className="delete-btns">
