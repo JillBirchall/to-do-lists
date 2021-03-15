@@ -1,5 +1,6 @@
 :root {
   --background-colour: #00c6f9;
+  --main-heading-colour: rgb(8, 0, 119);
   --list-background-colour: white;
   --toggle-button-colour: #0332cb;
   --delete-all-btn-colour: #ff2c2c;
@@ -8,6 +9,9 @@
   --list-item-font-family: "Quicksand", sans-serif;
   --green-icon-colour: #009f00;
   --list-hover-colour: #a9bbf7;
+  --text-colour: black;
+  --edit-icon-colour: rgb(0, 38, 119);
+  --delete-icon-colour: rgb(0, 38, 119);
 }
 
 *,
@@ -21,17 +25,23 @@
   padding: 0;
 }
 
-.main-heading {
-  color: rgb(8, 0, 119);
-  margin: 0px 5px;
+/* COLOURS */
+
+.dark-mode {
+  --background-colour: #333333;
+  --main-heading-colour: rgb(101, 206, 255);
+  --list-background-colour: rgb(8, 8, 8);
+  --toggle-button-colour: #0332cb;
+  --delete-all-btn-colour: #ff2c2c;
+  --delete-completed-btn-colour: #ff8000;
+  --green-icon-colour: #00ff00;
+  --list-hover-colour: #0059ff;
+  --text-colour: white;
+  --edit-icon-colour: rgb(0, 195, 255);
+  --delete-icon-colour: rgb(0, 195, 255);
 }
 
-.main-heading,
-.heading,
-.sub-heading {
-  text-align: center;
-  font-family: var(--heading-font-family);
-}
+/* LAYOUT */
 
 .main-container {
   background-color: var(--background-colour);
@@ -39,47 +49,12 @@
   width: 100vw;
   padding: 2% 5% 2% 5%;
   overflow-y: hidden;
+  color: var(--text-colour);
 }
 
 .lists-container {
   display: flex;
   height: 90%;
-}
-
-.dark-mode-toggle {
-  font-size: 1em;
-  margin-bottom: 1%;
-  display: flex;
-  justify-content: flex-end;
-  color: white;
-  font-family: var(--heading-font-family);
-}
-
-.dark-mode-toggle .inactive {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.dark-mode-toggle .active:hover {
-  cursor: pointer;
-  text-shadow: 0 0 2px rgb(0, 225, 255), 0 0 5px rgb(255, 255, 255);
-}
-
-.light-mode {
-  margin-left: 1%;
-}
-
-.btn {
-  border: none;
-  color: white;
-  font-family: var(--heading-font-family);
-}
-
-.btn:hover {
-  cursor: pointer;
-}
-
-.lists-toggle-btn {
-  display: none;
 }
 
 .list-names-container {
@@ -106,14 +81,6 @@
 
 .lists {
   overflow-y: scroll;
-}
-
-.list-name:hover {
-  cursor: pointer;
-}
-
-.icons .icon {
-  margin: 0 0.3rem;
 }
 
 .current-list-container {
@@ -162,18 +129,74 @@
   padding: 2% 5%;
 }
 
-.todo-item-text {
-  font-family: var(--list-item-font-family);
-  font-size: 1rem;
-}
-
-.add-new-item {
-  margin-left: 5%;
+.add-new-list {
   display: flex;
+  margin-top: 1rem;
+  margin-left: 0.7rem;
 }
 
-.input-box {
-  width: 70%;
+/* HEADINGS */
+
+.main-heading {
+  color: var(--main-heading-colour);
+  margin: 0px 5px;
+}
+
+.main-heading,
+.heading,
+.sub-heading {
+  text-align: center;
+  font-family: var(--heading-font-family);
+}
+
+.list-names-heading {
+  margin-top: 5%;
+}
+
+/* BUTTONS & LINKS */
+
+.dark-mode-toggle {
+  font-size: 1em;
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  font-family: var(--heading-font-family);
+}
+
+.dark-mode-toggle .inactive {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dark-mode-toggle .active:hover {
+  cursor: pointer;
+  text-shadow: 0 0 2px rgb(0, 225, 255), 0 0 5px rgb(255, 255, 255);
+}
+
+.light-mode-btn {
+  margin-left: 1%;
+}
+
+.btn {
+  border: none;
+  color: white;
+  font-family: var(--heading-font-family);
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.lists-toggle-btn {
+  display: none;
+}
+
+.list-name:hover {
+  cursor: pointer;
+}
+
+.icons .icon {
+  margin: 0 0.3rem;
 }
 
 .delete-btns {
@@ -198,11 +221,19 @@
   background-color: var(--delete-completed-btn-colour);
 }
 
-.add-new-list {
-  display: flex;
-  margin-top: 1rem;
-  margin-left: 0.7rem;
+.delete-all-btn:hover {
+  color: var(--delete-all-btn-colour);
+  background-color: white;
+  border: 2px solid var(--delete-all-btn-colour);
 }
+
+.delete-completed-btn:hover {
+  color: var(--delete-completed-btn-colour);
+  background-color: white;
+  border: 2px solid var(--delete-completed-btn-colour);
+}
+
+/* ICONS */
 
 .icon:hover {
   cursor: pointer;
@@ -213,14 +244,44 @@
   font-size: 1.8em;
 }
 
-@media (orientation: portrait) and (max-width: 650px) {
-  .main-heading {
-    margin-bottom: 0.7rem;
-  }
+.edit-icon,
+.delete-icon {
+  opacity: 0.5;
+}
 
-  .dark-mode-toggle {
-    margin-bottom: 0.7rem;
-  }
+.edit-icon {
+  color: var(--edit-icon-colour);
+}
+
+.delete-icon {
+  color: var(--delete-icon-colour);
+}
+
+.edit-icon:hover,
+.delete-icon:hover {
+  opacity: 1;
+}
+
+/* INPUT BOXES */
+
+.add-new-item {
+  margin-left: 5%;
+  display: flex;
+}
+
+.input-box {
+  width: 70%;
+}
+
+/* TEXT */
+
+.todo-item-text {
+  font-family: var(--list-item-font-family);
+  font-size: 1rem;
+}
+
+@media (orientation: portrait) and (max-width: 650px) {
+  /* LAYOUT */
 
   .lists-container {
     flex-direction: column;
@@ -230,24 +291,28 @@
     height: 100%;
   }
 
-  .lists-toggle-btn {
-    display: flex;
-    height: 2rem;
-    width: 100%;
-    background-color: var(--toggle-button-colour);
-    justify-content: flex-end;
-    align-items: center;
-    font-size: 1.5rem;
-  }
-
   .list-names-container {
     height: 85%;
     width: 100%;
   }
 
+  .current-list-container {
+    width: 100%;
+    height: 80%;
+    margin-left: 0px;
+    margin-top: 3%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr repeat(2, 5fr) 1fr;
+    grid-template-areas: "listname" "todolist" "completed" "deletebuttons";
+  }
+
   .lists {
     height: inherit;
     margin-bottom: none;
+  }
+
+  .completed-items {
+    margin-top: 5%;
   }
 
   .hidden {
@@ -261,26 +326,36 @@
     top: 2rem;
   }
 
-  .input-box {
-    width: 50%;
-  }
+  /* HEADINGS */
 
-  .current-list-container {
-    width: 100%;
-    height: 80%;
-    margin-left: 0px;
-    margin-top: 3%;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: 1fr repeat(2, 5fr) 1fr;
-    grid-template-areas: "listname" "todolist" "completed" "deletebuttons";
+  .main-heading {
+    margin-bottom: 0.7rem;
   }
 
   .current-list-name {
     margin-bottom: 5%;
   }
 
-  .completed-items {
-    margin-top: 5%;
+  /* BUTTONS & LINKS */
+
+  .dark-mode-toggle {
+    margin-bottom: 0.7rem;
+  }
+
+  .lists-toggle-btn {
+    display: flex;
+    height: 2rem;
+    width: 100%;
+    background-color: var(--toggle-button-colour);
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.5rem;
+    position: relative;
+  }
+
+  .lists-toggle-btn .icon {
+    position: absolute;
+    right: 0;
   }
 
   .delete-btns {
@@ -291,16 +366,21 @@
     height: 1.5rem;
     width: 8rem;
   }
+
+  /* ICONS */
+  .expand-arrow {
+    font-size: 1.5em;
+  }
+
+  /* INPUT BOXES */
+
+  .input-box {
+    width: 50%;
+  }
 }
 
 @media (max-height: 350px) {
-  .dark-mode-toggle {
-    font-size: 0.5rem;
-    display: flex;
-    justify-content: flex-end;
-    color: white;
-    font-family: var(--heading-font-family);
-  }
+  /* HEADINGS */
 
   .main-heading {
     font-size: 1.5rem;
@@ -312,5 +392,15 @@
 
   .sub-heading {
     font-size: 1rem;
+  }
+
+  /* BUTTONS & LINKS */
+
+  .dark-mode-toggle {
+    font-size: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    font-family: var(--heading-font-family);
   }
 }
