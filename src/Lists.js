@@ -1,7 +1,22 @@
-import React from "react";
+import { useState } from "react";
 import { ListName } from "./ListName";
 
-export const Lists = ({ isListsOpen, lists }) => {
+export const Lists = ({
+  isListsOpen,
+  selectedListId,
+  lists,
+  createNewList,
+  selectList,
+  deleteList,
+  editListName,
+}) => {
+  const [listNameInput, setListNameInput] = useState("");
+
+  function addList(listName) {
+    createNewList(listName);
+    setListNameInput("");
+  }
+
   return (
     <div
       className={
@@ -20,12 +35,33 @@ export const Lists = ({ isListsOpen, lists }) => {
         Lists
       </h2>
       <div className="add-new-list">
-        <input type="text" placeholder="Add a new list" className="input-box" />
-        <span className="material-icons add-icon icon">add</span>
+        <input
+          type="text"
+          placeholder="Add a new list"
+          className="input-box"
+          value={listNameInput}
+          onChange={(e) => setListNameInput(e.target.value)}
+        />
+        <span
+          className="material-icons add-icon icon"
+          onClick={(e) => addList(listNameInput)}
+        >
+          add
+        </span>
       </div>
       <div className="lists">
         {lists.map((list) => {
-          return <ListName listname={list.listName} key={list.id} />;
+          return (
+            <ListName
+              selectedList={list.id === selectedListId ? true : false}
+              listname={list.listName}
+              key={list.id}
+              listId={list.id}
+              selectList={selectList}
+              deleteList={deleteList}
+              editListName={editListName}
+            />
+          );
         })}
       </div>
     </div>

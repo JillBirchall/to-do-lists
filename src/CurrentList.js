@@ -1,18 +1,40 @@
-import React from "react";
+import { useState } from "react";
 import { ToDoItem } from "./ToDoItem";
 
-export const CurrentList = ({ list }) => {
+export const CurrentList = ({
+  list,
+  addItemToList,
+  deleteItemFromList,
+  changeItemName,
+  toggleItemChecked,
+  clearAllItems,
+  clearCheckedItems,
+}) => {
+  const [itemInput, setItemInput] = useState("");
+
+  function addItem(itemName) {
+    addItemToList(itemName);
+    setItemInput("");
+  }
+
   return (
     <div className="current-list-container">
-      <h2 className="current-list-name">Current List</h2>
+      <h2 className="current-list-name">{list.listName}</h2>
       <div className="todolist">
         <div className="add-new-item">
           <input
             type="text"
             placeholder="Add a new item"
             className="input-box"
+            value={itemInput}
+            onChange={(e) => setItemInput(e.target.value)}
           />
-          <span className="material-icons add-icon icon">add</span>
+          <span
+            className="material-icons add-icon icon"
+            onClick={() => addItem(itemInput)}
+          >
+            add
+          </span>
         </div>
         <div className="list">
           {list.items.map((item) => {
@@ -21,7 +43,11 @@ export const CurrentList = ({ list }) => {
                 <ToDoItem
                   itemName={item.itemName}
                   checked={item.checked}
-                  key={item.id}
+                  key={item.itemId}
+                  toggleItemChecked={toggleItemChecked}
+                  deleteItem={deleteItemFromList}
+                  changeItem={changeItemName}
+                  itemId={item.itemId}
                 />
               );
             }
@@ -37,7 +63,11 @@ export const CurrentList = ({ list }) => {
                 <ToDoItem
                   itemName={item.itemName}
                   checked={item.checked}
-                  key={item.id}
+                  key={item.itemId}
+                  toggleItemChecked={toggleItemChecked}
+                  deleteItem={deleteItemFromList}
+                  changeItem={changeItemName}
+                  itemId={item.itemId}
                 />
               );
             }
@@ -45,8 +75,15 @@ export const CurrentList = ({ list }) => {
         </div>
       </div>
       <div className="delete-btns">
-        <button className="delete-all-btn btn">Clear All</button>
-        <button className="delete-completed-btn btn">Clear Completed</button>
+        <button className="delete-all-btn btn" onClick={clearAllItems}>
+          Clear All
+        </button>
+        <button
+          className="delete-completed-btn btn"
+          onClick={clearCheckedItems}
+        >
+          Clear Completed
+        </button>
       </div>
     </div>
   );

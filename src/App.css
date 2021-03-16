@@ -12,6 +12,7 @@
   --text-colour: black;
   --edit-icon-colour: rgb(0, 38, 119);
   --delete-icon-colour: rgb(0, 38, 119);
+  --selected-list-colour: rgb(25, 0, 255);
 }
 
 *,
@@ -39,6 +40,7 @@
   --text-colour: white;
   --edit-icon-colour: rgb(0, 195, 255);
   --delete-icon-colour: rgb(0, 195, 255);
+  --selected-list-colour: rgb(0, 255, 255);
 }
 
 /* LAYOUT */
@@ -72,11 +74,6 @@
   padding: 0.7rem;
   padding-top: 1.2rem;
   font-family: var(--list-item-font-family);
-}
-
-.list-name-container:hover {
-  background-color: var(--list-hover-colour);
-  color: white;
 }
 
 .lists {
@@ -187,12 +184,25 @@
   cursor: pointer;
 }
 
+.list-name-container:hover {
+  background-color: var(--list-hover-colour);
+}
+
+.list-name-container:not(.selected-list):hover {
+  color: white;
+}
+
 .lists-toggle-btn {
   display: none;
 }
 
 .list-name:hover {
   cursor: pointer;
+}
+
+.selected-list {
+  color: var(--selected-list-colour);
+  font-weight: bolder;
 }
 
 .icons .icon {
