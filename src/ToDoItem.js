@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { EditIcon } from "./EditIcon";
+import { ConfirmIcon } from "./ConfirmIcon";
+import { ClearIcon } from "./ClearIcon";
+import { DeleteIcon } from "./DeleteIcon";
 
 export const ToDoItem = ({
   itemName,
@@ -11,8 +15,15 @@ export const ToDoItem = ({
   const [isEdit, setIsEdit] = useState(false);
   const [newItemName, setNewItemName] = useState("");
 
-  function amendItem(newName) {
-    changeItem(itemId, newName);
+  function amendItem() {
+    if (newItemName) {
+      changeItem(itemId, newItemName);
+    }
+    setIsEdit(false);
+    setNewItemName("");
+  }
+
+  function clearEdit() {
     setIsEdit(false);
     setNewItemName("");
   }
@@ -36,31 +47,14 @@ export const ToDoItem = ({
       )}
       <div className="icons">
         {isEdit ? (
-          <span
-            className="material-icons icon"
-            onClick={() => amendItem(newItemName)}
-          >
-            done
-          </span>
+          <ConfirmIcon confirmChange={amendItem} />
         ) : (
-          <span
-            className="material-icons icon edit-icon"
-            onClick={() => setIsEdit(!isEdit)}
-          >
-            edit
-          </span>
+          <EditIcon edit={() => setIsEdit(!isEdit)} />
         )}
         {isEdit ? (
-          <span class="material-icons icon" onClick={() => setIsEdit(false)}>
-            clear
-          </span>
+          <ClearIcon clearChange={clearEdit} />
         ) : (
-          <span
-            className="material-icons icon delete-icon"
-            onClick={() => deleteItem(itemId)}
-          >
-            delete
-          </span>
+          <DeleteIcon deleteItem={() => deleteItem(itemId)} />
         )}
       </div>
     </div>

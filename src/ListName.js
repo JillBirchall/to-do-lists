@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { EditIcon } from "./EditIcon";
+import { ConfirmIcon } from "./ConfirmIcon";
+import { ClearIcon } from "./ClearIcon";
+import { DeleteIcon } from "./DeleteIcon";
 
 export const ListName = ({
   selectedList,
@@ -11,8 +15,8 @@ export const ListName = ({
   const [isEdit, setIsEdit] = useState(false);
   const [newListName, setNewListName] = useState("");
 
-  function editList(newName) {
-    editListName(newName, listId);
+  function editList() {
+    editListName(newListName, listId);
     setNewListName("");
     setIsEdit(false);
   }
@@ -45,34 +49,14 @@ export const ListName = ({
         )}
         <div className="icons">
           {isEdit ? (
-            <span
-              className="material-icons icon"
-              onClick={() => editList(newListName)}
-            >
-              done
-            </span>
+            <ConfirmIcon confirmChange={editList} />
           ) : (
-            <span
-              className="material-icons icon edit-icon"
-              onClick={() => setIsEdit(!isEdit)}
-            >
-              edit
-            </span>
+            <EditIcon edit={() => setIsEdit(!isEdit)} />
           )}
           {isEdit ? (
-            <span
-              class="material-icons icon"
-              onClick={() => resetListNameEdit()}
-            >
-              clear
-            </span>
+            <ClearIcon clearChange={resetListNameEdit} />
           ) : (
-            <span
-              className="material-icons icon delete-icon"
-              onClick={() => deleteList(listId)}
-            >
-              delete
-            </span>
+            <DeleteIcon deleteItem={() => deleteList(listId)} />
           )}
         </div>
       </div>
