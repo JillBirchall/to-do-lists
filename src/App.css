@@ -13,6 +13,7 @@
   --edit-icon-colour: rgb(0, 38, 119);
   --delete-icon-colour: rgb(0, 38, 119);
   --selected-list-colour: rgb(25, 0, 255);
+  --list-names-menu-colour: rgb(98, 245, 255);
 }
 
 *,
@@ -41,6 +42,7 @@
   --edit-icon-colour: rgb(0, 195, 255);
   --delete-icon-colour: rgb(0, 195, 255);
   --selected-list-colour: rgb(0, 255, 255);
+  --list-names-menu-colour: rgb(105, 105, 105);
 }
 
 /* LAYOUT */
@@ -69,10 +71,12 @@
 }
 
 .list-name-container {
+  height: 50px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 0.7rem;
-  padding-top: 1.2rem;
+  /* padding: 0.7rem;
+  padding-top: 1.2rem; */
   font-family: var(--list-item-font-family);
 }
 
@@ -119,10 +123,20 @@
   overflow-y: scroll;
 }
 
+.list-name {
+  width: 70%;
+  padding: 1rem;
+}
+
+.list-name-container .icons {
+  width: 30%;
+}
+
 .todo-item-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 2% 5%;
 }
 
@@ -279,8 +293,14 @@
   display: flex;
 }
 
-.input-box {
+.add-input-box {
   width: 70%;
+}
+
+.edit-input-box {
+  width: 70%;
+  margin-left: 1rem;
+  padding: 0.5rem;
 }
 
 /* TEXT */
@@ -288,6 +308,8 @@
 .todo-item-text {
   font-family: var(--list-item-font-family);
   font-size: 1rem;
+  width: 70%;
+  margin-left: 5%;
 }
 
 @media (orientation: portrait) and (max-width: 650px) {
@@ -298,12 +320,13 @@
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    height: 100%;
   }
 
   .list-names-container {
-    height: 85%;
     width: 100%;
+    height: initial;
+    max-height: 85%;
+    background-color: var(--list-names-menu-colour);
   }
 
   .current-list-container {
@@ -317,7 +340,7 @@
   }
 
   .lists {
-    height: inherit;
+    /* height: auto; */
     margin-bottom: none;
   }
 

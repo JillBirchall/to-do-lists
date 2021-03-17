@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { ToDoItem } from "./ToDoItem";
+import { AddItem } from "./AddItem";
 
 export const CurrentList = ({
   list,
@@ -10,11 +10,8 @@ export const CurrentList = ({
   clearAllItems,
   clearCheckedItems,
 }) => {
-  const [itemInput, setItemInput] = useState("");
-
   function addItem(itemName) {
     if (itemName.trim()) addItemToList(itemName); //Only add a new item if the item contains characters other than white-space
-    setItemInput("");
   }
 
   return (
@@ -22,19 +19,7 @@ export const CurrentList = ({
       <h2 className="current-list-name">{list.listName}</h2>
       <div className="todolist">
         <div className="add-new-item">
-          <input
-            type="text"
-            placeholder="Add a new item"
-            className="input-box"
-            value={itemInput}
-            onChange={(e) => setItemInput(e.target.value)}
-          />
-          <span
-            className="material-icons add-icon icon"
-            onClick={() => addItem(itemInput)}
-          >
-            add
-          </span>
+          <AddItem placeholderText={"Add a new item"} addItem={addItem} />
         </div>
         <div className="list">
           {list.items.map((item) => {

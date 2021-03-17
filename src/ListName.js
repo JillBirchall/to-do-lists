@@ -16,7 +16,7 @@ export const ListName = ({
   const [newListName, setNewListName] = useState("");
 
   function editList() {
-    editListName(newListName, listId);
+    if (newListName.trim()) editListName(newListName, listId);
     setNewListName("");
     setIsEdit(false);
   }
@@ -37,15 +37,16 @@ export const ListName = ({
       >
         {isEdit ? (
           <input
+            className="edit-input-box"
             type="text"
             placeholder={listname}
             value={newListName}
             onChange={(e) => setNewListName(e.target.value)}
           ></input>
         ) : (
-          <p className="list-name" onClick={() => selectList(listId)}>
-            {listname}
-          </p>
+          <div className="list-name" onClick={() => selectList(listId)}>
+            <p>{listname}</p>
+          </div>
         )}
         <div className="icons">
           {isEdit ? (

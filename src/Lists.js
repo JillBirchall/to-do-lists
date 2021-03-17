@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { ListName } from "./ListName";
+import { AddItem } from "./AddItem";
 
 export const Lists = ({
   isListsOpen,
@@ -10,11 +10,8 @@ export const Lists = ({
   deleteList,
   editListName,
 }) => {
-  const [listNameInput, setListNameInput] = useState("");
-
   function addList(listName) {
     if (listName.trim()) createNewList(listName); //Only add a new list if the list name contains characters other than white-space
-    setListNameInput("");
   }
 
   return (
@@ -35,19 +32,7 @@ export const Lists = ({
         Lists
       </h2>
       <div className="add-new-list">
-        <input
-          type="text"
-          placeholder="Add a new list"
-          className="input-box"
-          value={listNameInput}
-          onChange={(e) => setListNameInput(e.target.value)}
-        />
-        <span
-          className="material-icons add-icon icon"
-          onClick={(e) => addList(listNameInput)}
-        >
-          add
-        </span>
+        <AddItem placeholderText={"Add a new list"} addItem={addList} />
       </div>
       <div className="lists">
         {lists.map((list) => {

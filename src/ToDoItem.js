@@ -16,9 +16,7 @@ export const ToDoItem = ({
   const [newItemName, setNewItemName] = useState("");
 
   function amendItem() {
-    if (newItemName) {
-      changeItem(itemId, newItemName);
-    }
+    if (newItemName.trim()) changeItem(itemId, newItemName);
     setIsEdit(false);
     setNewItemName("");
   }
@@ -43,7 +41,9 @@ export const ToDoItem = ({
           onChange={(e) => setNewItemName(e.target.value)}
         />
       ) : (
-        <p className="todo-item-text">{itemName}</p>
+        <div className="todo-item-text">
+          <p>{itemName}</p>
+        </div>
       )}
       <div className="icons">
         {isEdit ? (
