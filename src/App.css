@@ -1,3 +1,9 @@
+/*
+=============== 
+Variables
+===============
+*/
+
 :root {
   --background-colour: #00c6f9;
   --main-heading-colour: rgb(8, 0, 119);
@@ -16,19 +22,6 @@
   --list-names-menu-colour: rgb(98, 245, 255);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-/* COLOURS */
-
 .dark-mode {
   --background-colour: #333333;
   --main-heading-colour: rgb(101, 206, 255);
@@ -45,7 +38,28 @@
   --list-names-menu-colour: rgb(105, 105, 105);
 }
 
-/* LAYOUT */
+/*
+=============== 
+CSS Resets
+===============
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+=============== 
+Main Layout
+===============
+*/
 
 .main-container {
   background-color: var(--background-colour);
@@ -61,6 +75,12 @@
   height: 90%;
 }
 
+/*
+=============== 
+List Names Menu
+===============
+*/
+
 .list-names-container {
   width: 30%;
   height: 90%;
@@ -75,14 +95,43 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding: 0.7rem;
-  padding-top: 1.2rem; */
   font-family: var(--list-item-font-family);
 }
 
 .lists {
   overflow-y: scroll;
 }
+
+.list-name-container:hover {
+  background-color: var(--list-hover-colour);
+}
+
+.list-name-container:not(.selected-list):hover {
+  color: white;
+}
+
+.lists-toggle-btn {
+  display: none;
+}
+
+.list-name:hover {
+  cursor: pointer;
+}
+
+.selected-list {
+  color: var(--selected-list-colour);
+  font-weight: bolder;
+}
+
+.list-name-container .icons {
+  width: 30%;
+}
+
+/*
+=============== 
+Current List
+===============
+*/
 
 .current-list-container {
   width: 70%;
@@ -128,10 +177,6 @@
   padding: 1rem;
 }
 
-.list-name-container .icons {
-  width: 30%;
-}
-
 .todo-item-container {
   width: 100%;
   display: flex;
@@ -146,7 +191,11 @@
   margin-left: 0.7rem;
 }
 
-/* HEADINGS */
+/*
+=============== 
+Headings and Text
+===============
+*/
 
 .main-heading {
   color: var(--main-heading-colour);
@@ -164,7 +213,29 @@
   margin-top: 5%;
 }
 
-/* BUTTONS & LINKS */
+.no-selected-list-warning {
+  color: white;
+  margin: auto;
+}
+
+.no-list-warning {
+  color: var(--text-colour);
+  font-family: var(--list-item-font-family);
+  margin: 3%;
+}
+
+.todo-item-text {
+  font-family: var(--list-item-font-family);
+  font-size: 1rem;
+  width: 70%;
+  margin-left: 5%;
+}
+
+/*
+=============== 
+Dark Mode Toggle
+===============
+*/
 
 .dark-mode-toggle {
   font-size: 1em;
@@ -188,6 +259,12 @@
   margin-left: 1%;
 }
 
+/*
+=============== 
+Buttons
+===============
+*/
+
 .btn {
   border: none;
   color: white;
@@ -196,31 +273,6 @@
 
 .btn:hover {
   cursor: pointer;
-}
-
-.list-name-container:hover {
-  background-color: var(--list-hover-colour);
-}
-
-.list-name-container:not(.selected-list):hover {
-  color: white;
-}
-
-.lists-toggle-btn {
-  display: none;
-}
-
-.list-name:hover {
-  cursor: pointer;
-}
-
-.selected-list {
-  color: var(--selected-list-colour);
-  font-weight: bolder;
-}
-
-.icons .icon {
-  margin: 0 0.3rem;
 }
 
 .delete-btns {
@@ -257,7 +309,11 @@
   border: 2px solid var(--delete-completed-btn-colour);
 }
 
-/* ICONS */
+/*
+=============== 
+Icons
+===============
+*/
 
 .icon:hover {
   cursor: pointer;
@@ -286,7 +342,15 @@
   opacity: 1;
 }
 
-/* INPUT BOXES */
+.icons .icon {
+  margin: 0 0.3rem;
+}
+
+/*
+=============== 
+Text Input Boxes
+===============
+*/
 
 .add-new-item {
   margin-left: 5%;
@@ -303,18 +367,13 @@
   padding: 0.5rem;
 }
 
-/* TEXT */
-
-.todo-item-text {
-  font-family: var(--list-item-font-family);
-  font-size: 1rem;
-  width: 70%;
-  margin-left: 5%;
-}
+/*
+=============== 
+Mobile Phone Portrait Layout
+===============
+*/
 
 @media (orientation: portrait) and (max-width: 650px) {
-  /* LAYOUT */
-
   .lists-container {
     flex-direction: column;
     align-items: center;
@@ -340,7 +399,6 @@
   }
 
   .lists {
-    /* height: auto; */
     margin-bottom: none;
   }
 
@@ -359,8 +417,6 @@
     top: 2rem;
   }
 
-  /* HEADINGS */
-
   .main-heading {
     margin-bottom: 0.7rem;
   }
@@ -369,7 +425,10 @@
     margin-bottom: 5%;
   }
 
-  /* BUTTONS & LINKS */
+  .no-selected-list-warning {
+    margin-top: 50px;
+    margin-left: 0;
+  }
 
   .dark-mode-toggle {
     margin-bottom: 0.7rem;
@@ -400,21 +459,22 @@
     width: 8rem;
   }
 
-  /* ICONS */
   .expand-arrow {
     font-size: 1.5em;
   }
-
-  /* INPUT BOXES */
 
   .input-box {
     width: 50%;
   }
 }
 
-@media (max-height: 350px) {
-  /* HEADINGS */
+/*
+=============== 
+Small Screen Layout
+===============
+*/
 
+@media (max-height: 350px) {
   .main-heading {
     font-size: 1.5rem;
   }
@@ -426,8 +486,6 @@
   .sub-heading {
     font-size: 1rem;
   }
-
-  /* BUTTONS & LINKS */
 
   .dark-mode-toggle {
     font-size: 0.5rem;

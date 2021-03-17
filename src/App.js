@@ -11,15 +11,26 @@ function App() {
   const [lists, setLists] = useState([]);
   const [currentListId, setCurrentListId] = useState();
   const LOCAL_STORAGE_KEY_LISTS = "Lists.ToDoLists";
+  const LOCAL_STORAGE_DARK_MODE_KEY = "Lists.ToDoLists.DarkMode";
   const LOCAL_STORAGE_KEY_CURRENT_LIST = "Lists.CurrentListId";
 
-  //Retrieve the lists from local storage when the page loads
+  //Retrieve the lists and settings from local storage when the page loads
   useEffect(() => {
+    const storedDarkMode = JSON.parse(
+      localStorage.getItem(LOCAL_STORAGE_DARK_MODE_KEY)
+    );
+    if (storedDarkMode) setIsDarkMode(true);
     const storedToDoLists = JSON.parse(
       localStorage.getItem(LOCAL_STORAGE_KEY_LISTS)
     );
     if (storedToDoLists) {
       setLists(storedToDoLists);
+    }
+    const storedCurrentListId = JSON.parse(
+      localStorage.getItem(LOCAL_STORAGE_KEY_CURRENT_LIST)
+    );
+    if (storedCurrentListId) {
+      setCurrentListId(storedCurrentListId);
     }
   }, []);
 
@@ -27,6 +38,22 @@ function App() {
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_LISTS, JSON.stringify(lists));
   }, [lists]);
+
+  //Save the current list ID each time it changes
+  useEffect(() => {
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY_CURRENT_LIST,
+      JSON.stringify(currentListId)
+    );
+  }, [currentListId]);
+
+  //Save the dark mode settings
+  useEffect(() => {
+    localStorage.setItem(
+      LOCAL_STORAGE_DARK_MODE_KEY,
+      JSON.stringify(isDarkMode)
+    );
+  }, [isDarkMode]);
 
   function toggleDarkMode(isDarkModeBtn) {
     if ((isDarkModeBtn && isDarkMode) || (!isDarkModeBtn && !isDarkMode))
@@ -44,8 +71,7 @@ function App() {
   }
 
   function deleteList(listIdToDelete) {
-    let newListsArray = lists.filter((list) => list.id !== listIdToDelete);
-    setLists(newListsArray);
+    setLists(lists.filter((list) => list.id !== listIdToDelete));
     if (currentListId === listIdToDelete) setCurrentListId();
   }
 
@@ -152,7 +178,7 @@ function App() {
           deleteList={deleteList}
           editListName={editListName}
         />
-        {currentListId && (
+        {currentListId ? (
           <CurrentList
             list={lists.find((list) => list.id === currentListId)}
             addItemToList={addItemToList}
@@ -162,6 +188,10 @@ function App() {
             clearAllItems={clearAllItems}
             clearCheckedItems={clearCheckedItems}
           />
+        ) : (
+          <p className="sub-heading no-selected-list-warning">
+            Please select a List.
+          </p>
         )}
       </div>
     </div>

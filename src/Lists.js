@@ -49,6 +49,11 @@ export const Lists = ({
           );
         })}
       </div>
+      {lists.length === 0 && (
+        <p className="no-list-warning">
+          You have no lists yet. Please create a list.
+        </p>
+      )}
     </div>
   );
 };
