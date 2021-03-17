@@ -13,7 +13,7 @@ export const CurrentList = ({
   const [itemInput, setItemInput] = useState("");
 
   function addItem(itemName) {
-    addItemToList(itemName);
+    if (itemName.trim()) addItemToList(itemName); //Only add a new item if the item contains characters other than white-space
     setItemInput("");
   }
 
