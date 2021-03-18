@@ -16,7 +16,7 @@ export const CurrentList = ({
 
   return (
     <div className="current-list-container">
-      <h2 className="current-list-name">{list.listName}</h2>
+      <h2 className="current-list-name heading">{list.listName}</h2>
       <div className="todolist">
         <div className="add-new-item">
           <AddItem placeholderText={"Add a new item"} addItem={addItem} />

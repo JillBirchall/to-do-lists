@@ -61,7 +61,7 @@ export const ListName = ({
           )}
         </div>
       </div>
-      <hr></hr>
+      {/* <hr></hr> */}
     </>
   );
 };

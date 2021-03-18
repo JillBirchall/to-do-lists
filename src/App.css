@@ -6,36 +6,55 @@ Variables
 
 :root {
   --background-colour: #00c6f9;
-  --main-heading-colour: rgb(8, 0, 119);
-  --list-background-colour: white;
-  --toggle-button-colour: #0332cb;
-  --delete-all-btn-colour: #ff2c2c;
-  --delete-completed-btn-colour: #ff8000;
-  --heading-font-family: "Montserrat", sans-serif;
-  --list-item-font-family: "Quicksand", sans-serif;
-  --green-icon-colour: #009f00;
-  --list-hover-colour: #a9bbf7;
+  --background-gradient: linear-gradient(to top left, #0165fa, #0debfd);
+  --main-heading-colour: rgb(255, 255, 255);
+  --list-background-colour: rgba(255, 255, 255);
+  --toggle-button-colour: #2c0dfd;
+  --delete-all-btn-colour: #ff0037;
+  --delete-completed-btn-colour: #9600fa;
+  --title-font-family: "Raleway", sans-serif;
+  --heading-font-family: "Lato", sans-serif;
+  --list-item-font-family: "Open Sans", sans-serif;
+  --add-icon-colour: #2c0dfd;
+  --list-hover-colour: rgba(77, 148, 255, 0.5);
   --text-colour: black;
-  --edit-icon-colour: rgb(0, 38, 119);
-  --delete-icon-colour: rgb(0, 38, 119);
-  --selected-list-colour: rgb(25, 0, 255);
-  --list-names-menu-colour: rgb(98, 245, 255);
+  --edit-icon-colour: #2c0dfd;
+  --delete-icon-colour: #2c0dfd;
+  --selected-list-colour: #0b29e3;
+  --list-names-menu-colour: rgb(203, 224, 255);
+  --container-box-shadow: 0 0 10px 1px rgb(0, 0, 0, 0.3);
+  --container-border: 1px solid rgb(0, 0, 0);
+  --sub-heading-colour: #2c0dfd;
+  --heading-colour: #00317a;
+  --scrollbar-thumb-colour: #2c0dfd;
+  --scrollbar-thumb-hover-colour: #00c0fa;
 }
 
 .dark-mode {
-  --background-colour: #333333;
-  --main-heading-colour: rgb(101, 206, 255);
-  --list-background-colour: rgb(8, 8, 8);
+  --background-colour: #2c2a2a;
+  --background-gradient: linear-gradient(
+    to top left,
+    rgb(44, 44, 44),
+    rgb(0, 62, 87)
+  );
+  --main-heading-colour: rgb(255, 255, 255);
+  --list-background-colour: rgb(0, 0, 0);
   --toggle-button-colour: #0332cb;
-  --delete-all-btn-colour: #ff2c2c;
-  --delete-completed-btn-colour: #ff8000;
-  --green-icon-colour: #00ff00;
+  --delete-all-btn-colour: #ff00b3;
+  --delete-completed-btn-colour: #5900ff;
+  --add-icon-colour: #00ffaa;
   --list-hover-colour: #0059ff;
   --text-colour: white;
   --edit-icon-colour: rgb(0, 195, 255);
   --delete-icon-colour: rgb(0, 195, 255);
   --selected-list-colour: rgb(0, 255, 255);
-  --list-names-menu-colour: rgb(105, 105, 105);
+  --list-names-menu-colour: rgb(66, 66, 66);
+  --container-box-shadow: 0 0 10px 1px rgba(250, 250, 250, 0.342);
+  --container-border: 1px solid rgb(255, 255, 255);
+  --sub-heading-colour: #0debfd;
+  --heading-colour: #0dfd69;
+  --scrollbar-thumb-colour: #0d61fd;
+  --scrollbar-thumb-hover-colour: #0debfd;
 }
 
 /*
@@ -63,6 +82,7 @@ Main Layout
 
 .main-container {
   background-color: var(--background-colour);
+  background-image: var(--background-gradient);
   height: 100vh;
   width: 100vw;
   padding: 2% 5% 2% 5%;
@@ -88,6 +108,10 @@ List Names Menu
   background-color: var(--list-background-colour);
   display: flex;
   flex-direction: column;
+  box-shadow: var(--container-box-shadow);
+  border-radius: 5px;
+  border: var(--container-border);
+  position: relative;
 }
 
 .list-name-container {
@@ -99,6 +123,7 @@ List Names Menu
 }
 
 .lists {
+  height: 70%;
   overflow-y: scroll;
 }
 
@@ -143,6 +168,9 @@ Current List
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr 10fr 2fr;
   grid-template-areas: "listname listname" "todolist completed" "deletebuttons deletebuttons";
+  box-shadow: var(--container-box-shadow);
+  border-radius: 5px;
+  border: var(--container-border);
 }
 
 .current-list-name {
@@ -170,6 +198,7 @@ Current List
   margin-top: 1rem;
   height: 90%;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .list-name {
@@ -200,13 +229,24 @@ Headings and Text
 .main-heading {
   color: var(--main-heading-colour);
   margin: 0px 5px;
+  font-family: var(--title-font-family);
+  text-align: center;
+  font-size: 3rem;
 }
 
-.main-heading,
 .heading,
 .sub-heading {
   text-align: center;
   font-family: var(--heading-font-family);
+  font-weight: 400;
+}
+
+.heading {
+  color: var(--heading-colour);
+}
+
+.sub-heading {
+  color: var(--sub-heading-colour);
 }
 
 .list-names-heading {
@@ -222,6 +262,9 @@ Headings and Text
   color: var(--text-colour);
   font-family: var(--list-item-font-family);
   margin: 3%;
+  position: absolute;
+  top: 20%;
+  text-align: center;
 }
 
 .todo-item-text {
@@ -320,7 +363,7 @@ Icons
 }
 
 .add-icon {
-  color: var(--green-icon-colour);
+  color: var(--add-icon-colour);
   font-size: 1.8em;
 }
 
@@ -365,6 +408,29 @@ Text Input Boxes
   width: 70%;
   margin-left: 1rem;
   padding: 0.5rem;
+}
+
+/*
+=============== 
+Scroll Bar
+===============
+*/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--list-background-colour);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-colour);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-colour);
 }
 
 /*
