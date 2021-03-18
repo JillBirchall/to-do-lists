@@ -28,6 +28,9 @@ Variables
   --heading-colour: #00317a;
   --scrollbar-thumb-colour: #2c0dfd;
   --scrollbar-thumb-hover-colour: #00c0fa;
+  --add-input-box-colour: rgba(82, 235, 255, 0.7);
+  --add-input-border: none;
+  --add-input-box-placeholder-colour: #2d0dfd81;
 }
 
 .dark-mode {
@@ -55,6 +58,9 @@ Variables
   --heading-colour: #0dfd69;
   --scrollbar-thumb-colour: #0d61fd;
   --scrollbar-thumb-hover-colour: #0debfd;
+  --add-input-box-colour: #ffffff;
+  --add-input-border: none;
+  --add-input-box-placeholder-colour: #0d61fda4;
 }
 
 /*
@@ -398,10 +404,16 @@ Text Input Boxes
 .add-new-item {
   margin-left: 5%;
   display: flex;
+  align-items: center;
 }
 
 .add-input-box {
   width: 70%;
+  background-color: var(--add-input-box-colour);
+  border: var(--add-input-border);
+  font-family: var(--list-item-font-family);
+  font-size: 1em;
+  padding: 5px;
 }
 
 .edit-input-box {
@@ -410,12 +422,28 @@ Text Input Boxes
   padding: 0.5rem;
 }
 
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--add-input-box-placeholder-colour);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--add-input-box-placeholder-colour);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--add-input-box-placeholder-colour);
+}
+
 /*
 =============== 
-Scroll Bar
+Scroll Bar 
+NOT SUPPORTED IN FIREFOX AND IE
 ===============
 */
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -425,12 +453,12 @@ Scroll Bar
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb-colour);
+  background-color: var(--scrollbar-thumb-colour);
   border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-thumb-hover-colour);
+  background-color: var(--scrollbar-thumb-hover-colour);
 }
 
 /*
