@@ -2,8 +2,12 @@ import React from "react";
 
 export const DeleteIcon = ({ deleteItem }) => {
   return (
-    <span className="material-icons icon delete-icon" onClick={deleteItem}>
+    <button
+      className="material-icons icon delete-icon"
+      onClick={deleteItem}
+      aria-label="delete item from list"
+    >
       delete
-    </span>
+    </button>
   );
 };

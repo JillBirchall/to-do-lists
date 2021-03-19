@@ -2,8 +2,12 @@ import React from "react";
 
 export const ConfirmIcon = ({ confirmChange }) => {
   return (
-    <span className="material-icons icon" onClick={confirmChange}>
+    <button
+      className="material-icons icon confirm-icon"
+      onClick={confirmChange}
+      aria-label="confirm edit"
+    >
       done
-    </span>
+    </button>
   );
 };

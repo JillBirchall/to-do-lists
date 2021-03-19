@@ -28,23 +28,27 @@ export const ToDoItem = ({
 
   return (
     <div className="todo-item-container">
-      <input
-        type="checkbox"
-        onChange={() => toggleItemChecked(itemId)}
-        checked={checked}
-      ></input>
-      {isEdit ? (
+      <label className="checkbox-container">
         <input
-          type="text"
-          placeholder={itemName}
-          value={newItemName}
-          onChange={(e) => setNewItemName(e.target.value)}
-        />
-      ) : (
-        <div className="todo-item-text">
+          type="checkbox"
+          onChange={() => toggleItemChecked(itemId)}
+          checked={checked}
+          className="checkbox"
+        ></input>
+        <span className="custom-checkbox"></span>
+      </label>
+      <div className="todo-item-text">
+        {isEdit ? (
+          <input
+            type="text"
+            placeholder={itemName}
+            value={newItemName}
+            onChange={(e) => setNewItemName(e.target.value)}
+          />
+        ) : (
           <p>{itemName}</p>
-        </div>
-      )}
+        )}
+      </div>
       <div className="icons">
         {isEdit ? (
           <ConfirmIcon confirmChange={amendItem} />

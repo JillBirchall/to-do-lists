@@ -27,41 +27,38 @@ export const ListName = ({
   }
 
   return (
-    <>
-      <div
-        className={
-          selectedList
-            ? "list-name-container selected-list"
-            : "list-name-container"
-        }
-      >
-        {isEdit ? (
-          <input
-            className="edit-input-box"
-            type="text"
-            placeholder={listname}
-            value={newListName}
-            onChange={(e) => setNewListName(e.target.value)}
-          ></input>
-        ) : (
-          <div className="list-name" onClick={() => selectList(listId)}>
-            <p>{listname}</p>
-          </div>
-        )}
-        <div className="icons">
-          {isEdit ? (
-            <ConfirmIcon confirmChange={editList} />
-          ) : (
-            <EditIcon edit={() => setIsEdit(!isEdit)} />
-          )}
-          {isEdit ? (
-            <ClearIcon clearChange={resetListNameEdit} />
-          ) : (
-            <DeleteIcon deleteItem={() => deleteList(listId)} />
-          )}
+    <li
+      className={
+        selectedList
+          ? "list-name-container selected-list"
+          : "list-name-container"
+      }
+    >
+      {isEdit ? (
+        <input
+          className="edit-input-box"
+          type="text"
+          placeholder={listname}
+          value={newListName}
+          onChange={(e) => setNewListName(e.target.value)}
+        ></input>
+      ) : (
+        <div className="list-name" onClick={() => selectList(listId)}>
+          <p>{listname}</p>
         </div>
+      )}
+      <div className="icons">
+        {isEdit ? (
+          <ConfirmIcon confirmChange={editList} />
+        ) : (
+          <EditIcon edit={() => setIsEdit(!isEdit)} />
+        )}
+        {isEdit ? (
+          <ClearIcon clearChange={resetListNameEdit} />
+        ) : (
+          <DeleteIcon deleteItem={() => deleteList(listId)} />
+        )}
       </div>
-      {/* <hr></hr> */}
-    </>
+    </li>
   );
 };

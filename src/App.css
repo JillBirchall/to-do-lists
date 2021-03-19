@@ -20,6 +20,8 @@ Variables
   --text-colour: black;
   --edit-icon-colour: #2c0dfd;
   --delete-icon-colour: #2c0dfd;
+  --confirmclear-icon-colour: #2c0dfd;
+  --icon-hover-colour: #9600fa;
   --selected-list-colour: #0b29e3;
   --list-names-menu-colour: rgb(203, 224, 255);
   --container-box-shadow: 0 0 10px 1px rgb(0, 0, 0, 0.3);
@@ -117,7 +119,6 @@ List Names Menu
   box-shadow: var(--container-box-shadow);
   border-radius: 5px;
   border: var(--container-border);
-  position: relative;
 }
 
 .list-name-container {
@@ -204,11 +205,11 @@ Current List
   margin-top: 1rem;
   height: 90%;
   overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  /* -webkit-overflow-scrolling: touch; */
 }
 
 .list-name {
-  width: 70%;
+  max-width: 70%;
   padding: 1rem;
 }
 
@@ -262,15 +263,13 @@ Headings and Text
 .no-selected-list-warning {
   color: white;
   margin: auto;
+  font-size: 1.5em;
 }
 
 .no-list-warning {
   color: var(--text-colour);
   font-family: var(--list-item-font-family);
   margin: 3%;
-  position: absolute;
-  top: 20%;
-  text-align: center;
 }
 
 .todo-item-text {
@@ -329,7 +328,7 @@ Buttons
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  margin-bottom: 0.7rem;
+  margin: 0.7rem 0;
   font-size: 1rem;
 }
 
@@ -364,6 +363,11 @@ Icons
 ===============
 */
 
+.icon {
+  border: none;
+  background-color: transparent;
+}
+
 .icon:hover {
   cursor: pointer;
 }
@@ -391,8 +395,79 @@ Icons
   opacity: 1;
 }
 
+.confirm-icon,
+.clear-icon {
+  color: var(--confirmclear-icon-colour);
+}
+
+.confirm-icon:hover,
+.clear-icon:hover {
+  color: var(--icon-hover-colour);
+}
+
 .icons .icon {
   margin: 0 0.3rem;
+}
+
+/*
+=============== 
+Checkbox
+===============
+*/
+
+.checkbox-container {
+  --checkbox-height: 20px;
+  --checkbox-width: 20px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  height: var(--checkbox-height);
+  width: var(--checkbox-width);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.custom-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--text-colour);
+  background-color: white;
+}
+
+.checkbox-container:hover .custom-checkbox,
+.checkbox:focus ~ .custom-checkbox {
+  border: 2px solid var(--selected-list-colour);
+}
+
+.checkbox:checked ~ .custom-checkbox {
+  background-color: var(--selected-list-colour);
+}
+
+.custom-checkbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox:checked ~ .custom-checkbox:after {
+  display: block;
+}
+
+.custom-checkbox:after {
+  background-image: url("./images/tick.png");
+  background-position: center;
+  height: 100%;
+  width: 100%;
 }
 
 /*

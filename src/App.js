@@ -12,7 +12,7 @@ function App() {
   const [currentListId, setCurrentListId] = useState();
   const LOCAL_STORAGE_KEY_LISTS = "Lists.ToDoLists";
   const LOCAL_STORAGE_DARK_MODE_KEY = "Lists.ToDoLists.DarkMode";
-  const LOCAL_STORAGE_KEY_CURRENT_LIST = "Lists.CurrentListId";
+  // const LOCAL_STORAGE_KEY_CURRENT_LIST = "Lists.CurrentListId";
 
   //Retrieve the lists and settings from local storage when the page loads
   useEffect(() => {
@@ -26,12 +26,13 @@ function App() {
     if (storedToDoLists) {
       setLists(storedToDoLists);
     }
-    const storedCurrentListId = JSON.parse(
-      localStorage.getItem(LOCAL_STORAGE_KEY_CURRENT_LIST)
-    );
-    if (storedCurrentListId) {
-      setCurrentListId(storedCurrentListId);
-    }
+    // const storedCurrentListId = localStorage.getItem(
+    //   LOCAL_STORAGE_KEY_CURRENT_LIST
+    // );
+    // if (storedCurrentListId != undefined) {
+    //   console.log("Setting Current List Id");
+    //   setCurrentListId(storedCurrentListId);
+    // }
   }, []);
 
   //Save the lists each time a change is made
@@ -40,12 +41,12 @@ function App() {
   }, [lists]);
 
   //Save the current list ID each time it changes
-  useEffect(() => {
-    localStorage.setItem(
-      LOCAL_STORAGE_KEY_CURRENT_LIST,
-      JSON.stringify(currentListId)
-    );
-  }, [currentListId]);
+  // useEffect(() => {
+  //   localStorage.setItem(
+  //     LOCAL_STORAGE_KEY_CURRENT_LIST,
+  //     JSON.stringify(currentListId)
+  //   );
+  // }, [currentListId]);
 
   //Save the dark mode settings
   useEffect(() => {
@@ -72,7 +73,7 @@ function App() {
 
   function deleteList(listIdToDelete) {
     setLists(lists.filter((list) => list.id !== listIdToDelete));
-    if (currentListId === listIdToDelete) setCurrentListId();
+    if (currentListId === listIdToDelete) setCurrentListId("");
   }
 
   function editListName(newName, listId) {

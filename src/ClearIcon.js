@@ -2,8 +2,12 @@ import React from "react";
 
 export const ClearIcon = ({ clearChange }) => {
   return (
-    <span className="material-icons icon" onClick={clearChange}>
+    <button
+      className="material-icons icon clear-icon"
+      onClick={clearChange}
+      aria-label="cancel edit"
+    >
       clear
-    </span>
+    </button>
   );
 };

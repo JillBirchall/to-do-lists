@@ -34,7 +34,12 @@ export const Lists = ({
       <div className="add-new-list">
         <AddItem placeholderText={"Add a new list"} addItem={addList} />
       </div>
-      <div className="lists">
+      {lists.length === 0 && (
+        <p className="no-list-warning">
+          You have no lists yet. Please create a list.
+        </p>
+      )}
+      <ul className="lists">
         {lists.map((list) => {
           return (
             <ListName
@@ -48,12 +53,7 @@ export const Lists = ({
             />
           );
         })}
-      </div>
-      {lists.length === 0 && (
-        <p className="no-list-warning">
-          You have no lists yet. Please create a list.
-        </p>
-      )}
+      </ul>
     </div>
   );
 };
