@@ -579,7 +579,7 @@ Mobile Phone Portrait Layout
 ===============
 */
 
-@media (orientation: portrait) and (max-width: 650px) {
+@media (orientation: portrait) and (max-width: 750px) {
   .lists-container {
     flex-direction: column;
     align-items: center;

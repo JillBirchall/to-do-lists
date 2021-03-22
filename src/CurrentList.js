@@ -22,8 +22,9 @@ export const CurrentList = ({
           <AddItem placeholderText={"Add a new item"} addItem={addItem} />
         </div>
         <div className="list">
-          {list.items.map((item) => {
-            if (!item.checked) {
+          {list.items
+            .filter((item) => item.checked === false)
+            .map((item) => {
               return (
                 <ToDoItem
                   itemName={item.itemName}
@@ -35,15 +36,15 @@ export const CurrentList = ({
                   itemId={item.itemId}
                 />
               );
-            }
-          })}
+            })}
         </div>
       </div>
       <div className="completed-items">
         <h3 className="sub-heading">Completed Items</h3>
         <div className="list">
-          {list.items.map((item) => {
-            if (item.checked) {
+          {list.items
+            .filter((item) => item.checked === true)
+            .map((item) => {
               return (
                 <ToDoItem
                   itemName={item.itemName}
@@ -55,8 +56,7 @@ export const CurrentList = ({
                   itemId={item.itemId}
                 />
               );
-            }
-          })}
+            })}
         </div>
       </div>
       <div className="delete-btns">
