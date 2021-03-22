@@ -38,13 +38,14 @@ export const ListName = ({
         <input
           className="edit-input-box"
           type="text"
+          maxLength="20"
           placeholder={listname}
           value={newListName}
           onChange={(e) => setNewListName(e.target.value)}
         ></input>
       ) : (
         <div className="list-name" onClick={() => selectList(listId)}>
-          <p>{listname}</p>
+          {listname}
         </div>
       )}
       <div className="icons">

@@ -5,64 +5,70 @@ Variables
 */
 
 :root {
-  --background-colour: #00c6f9;
-  --background-gradient: linear-gradient(to top left, #0165fa, #0debfd);
+  --main-heading-font-family: "Fredoka One", sans-serif;
+  --heading-font-family: "Lato", sans-serif;
+  --list-item-font-family: "Open Sans", sans-serif;
+  --background-colour: #0debfd;
+  --background-gradient: linear-gradient(to top left, #247cff, #0debfd);
   --main-heading-colour: rgb(255, 255, 255);
   --list-background-colour: rgba(255, 255, 255);
   --toggle-button-colour: #2c0dfd;
   --delete-all-btn-colour: #ff0037;
   --delete-completed-btn-colour: #9600fa;
-  --title-font-family: "Raleway", sans-serif;
-  --heading-font-family: "Lato", sans-serif;
-  --list-item-font-family: "Open Sans", sans-serif;
   --add-icon-colour: #2c0dfd;
-  --list-hover-colour: rgba(77, 148, 255, 0.5);
+  --list-hover-colour: #0debfd;
+  --list-name-hover-colour: #0165fa;
+  --list-hover-icon-colour: #0debfd;
   --text-colour: black;
-  --edit-icon-colour: #2c0dfd;
-  --delete-icon-colour: #2c0dfd;
+  --editdelete-icon-colour: #2c0dfd;
   --confirmclear-icon-colour: #2c0dfd;
-  --icon-hover-colour: #9600fa;
-  --selected-list-colour: #0b29e3;
+  --confirmclear-icon-hover-colour: #9600fa;
+  --selected-list-colour: #2c0dfd;
+  --selected-list-hover-colour: #2c0dfd;
   --list-names-menu-colour: rgb(203, 224, 255);
   --container-box-shadow: 0 0 10px 1px rgb(0, 0, 0, 0.3);
   --container-border: 1px solid rgb(0, 0, 0);
   --sub-heading-colour: #2c0dfd;
   --heading-colour: #00317a;
   --scrollbar-thumb-colour: #2c0dfd;
-  --scrollbar-thumb-hover-colour: #00c0fa;
-  --add-input-box-colour: rgba(82, 235, 255, 0.7);
+  --scrollbar-thumb-hover-colour: #0debfd;
+  --add-input-box-colour: rgba(110, 238, 255, 0.7);
   --add-input-border: none;
-  --add-input-box-placeholder-colour: #2d0dfd81;
+  --add-input-box-placeholder-colour: rgba(0, 49, 122, 0.5);
+  --checkbox-checked-colour: #9600fa;
+  --checkbox-hover-border-color: #2c0dfd;
 }
 
 .dark-mode {
-  --background-colour: #2c2a2a;
-  --background-gradient: linear-gradient(
-    to top left,
-    rgb(44, 44, 44),
-    rgb(0, 62, 87)
-  );
+  --background-colour: #515e5e;
+  --background-gradient: linear-gradient(to top left, #191931, #707794);
   --main-heading-colour: rgb(255, 255, 255);
-  --list-background-colour: rgb(0, 0, 0);
-  --toggle-button-colour: #0332cb;
-  --delete-all-btn-colour: #ff00b3;
-  --delete-completed-btn-colour: #5900ff;
-  --add-icon-colour: #00ffaa;
-  --list-hover-colour: #0059ff;
-  --text-colour: white;
-  --edit-icon-colour: rgb(0, 195, 255);
-  --delete-icon-colour: rgb(0, 195, 255);
-  --selected-list-colour: rgb(0, 255, 255);
-  --list-names-menu-colour: rgb(66, 66, 66);
-  --container-box-shadow: 0 0 10px 1px rgba(250, 250, 250, 0.342);
+  --list-background-colour: #193053;
+  --toggle-button-colour: #0db1fd;
+  --delete-all-btn-colour: #ff0040;
+  --delete-completed-btn-colour: #fa00ed;
+  --add-icon-colour: #0db1fd;
+  --list-hover-colour: #0debfd;
+  --list-name-hover-colour: #1a01fa;
+  --list-hover-icon-colour: #2601fa;
+  --text-colour: rgb(255, 255, 255);
+  --editdelete-icon-colour: #0debfd;
+  --confirmclear-icon-colour: #0db1fd;
+  --confirmclear-icon-hover-colour: #fa00ed;
+  --selected-list-colour: #0debfd;
+  --selected-list-hover-colour: #2c0dfd;
+  --list-names-menu-colour: #000852;
+  --container-box-shadow: 0 0 10px 1px rgb(0, 0, 0, 0.3);
   --container-border: 1px solid rgb(255, 255, 255);
-  --sub-heading-colour: #0debfd;
-  --heading-colour: #0dfd69;
-  --scrollbar-thumb-colour: #0d61fd;
-  --scrollbar-thumb-hover-colour: #0debfd;
-  --add-input-box-colour: #ffffff;
+  --sub-heading-colour: #00e1ff;
+  --heading-colour: #00ff62;
+  --scrollbar-thumb-colour: #0debfd;
+  --scrollbar-thumb-hover-colour: #0db1fd;
+  --add-input-box-colour: rgb(255, 255, 255);
   --add-input-border: none;
-  --add-input-box-placeholder-colour: #0d61fda4;
+  --add-input-box-placeholder-colour: rgba(0, 49, 122, 0.5);
+  --checkbox-checked-colour: #2c0dfd;
+  --checkbox-hover-border-color: #fa019a;
 }
 
 /*
@@ -138,8 +144,12 @@ List Names Menu
   background-color: var(--list-hover-colour);
 }
 
+.list-name-container:hover .icon {
+  color: var(--list-hover-icon-colour);
+}
+
 .list-name-container:not(.selected-list):hover {
-  color: white;
+  color: var(--list-name-hover-colour);
 }
 
 .lists-toggle-btn {
@@ -156,7 +166,20 @@ List Names Menu
 }
 
 .list-name-container .icons {
-  width: 30%;
+  width: 20%;
+}
+
+.list-name-container.selected-list:hover {
+  color: var(--selected-list-hover-colour);
+}
+
+.list-name {
+  width: 80%;
+  padding: 1rem;
+  margin-right: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /*
@@ -184,7 +207,11 @@ Current List
   grid-area: listname;
   font-family: var(--heading-font-family);
   text-align: center;
-  margin: 3% 0;
+  margin: 3% 3%;
+  height: 2rem;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .todolist {
@@ -208,11 +235,6 @@ Current List
   /* -webkit-overflow-scrolling: touch; */
 }
 
-.list-name {
-  max-width: 70%;
-  padding: 1rem;
-}
-
 .todo-item-container {
   width: 100%;
   display: flex;
@@ -225,6 +247,7 @@ Current List
   display: flex;
   margin-top: 1rem;
   margin-left: 0.7rem;
+  margin-bottom: 1rem;
 }
 
 /*
@@ -236,9 +259,10 @@ Headings and Text
 .main-heading {
   color: var(--main-heading-colour);
   margin: 0px 5px;
-  font-family: var(--title-font-family);
+  font-family: var(--main-heading-font-family);
   text-align: center;
   font-size: 3rem;
+  font-weight: normal;
 }
 
 .heading,
@@ -277,6 +301,9 @@ Headings and Text
   font-size: 1rem;
   width: 70%;
   margin-left: 5%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /*
@@ -362,6 +389,10 @@ Buttons
 Icons
 ===============
 */
+.icons {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .icon {
   border: none;
@@ -382,17 +413,20 @@ Icons
   opacity: 0.5;
 }
 
-.edit-icon {
-  color: var(--edit-icon-colour);
-}
-
+.edit-icon,
 .delete-icon {
-  color: var(--delete-icon-colour);
+  color: var(--editdelete-icon-colour);
 }
 
 .edit-icon:hover,
 .delete-icon:hover {
   opacity: 1;
+}
+
+.edit-icon:focus,
+.delete-icon:focus {
+  opacity: 1;
+  outline-color: var(--editdelete-icon-colour);
 }
 
 .confirm-icon,
@@ -401,8 +435,11 @@ Icons
 }
 
 .confirm-icon:hover,
-.clear-icon:hover {
-  color: var(--icon-hover-colour);
+.clear-icon:hover,
+.confirm-icon:focus,
+.clear-icon:focus {
+  color: var(--confirmclear-icon-hover-colour);
+  outline-color: var(--confirmclear-icon-colour);
 }
 
 .icons .icon {
@@ -446,11 +483,11 @@ Checkbox
 
 .checkbox-container:hover .custom-checkbox,
 .checkbox:focus ~ .custom-checkbox {
-  border: 2px solid var(--selected-list-colour);
+  border: 2px solid var(--checkbox-hover-border-color);
 }
 
 .checkbox:checked ~ .custom-checkbox {
-  background-color: var(--selected-list-colour);
+  background-color: var(--checkbox-checked-colour);
 }
 
 .custom-checkbox:after {

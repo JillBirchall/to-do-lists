@@ -41,6 +41,7 @@ export const ToDoItem = ({
         {isEdit ? (
           <input
             type="text"
+            maxLength="20"
             placeholder={itemName}
             value={newItemName}
             onChange={(e) => setNewItemName(e.target.value)}

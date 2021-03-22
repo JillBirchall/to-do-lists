@@ -13,6 +13,7 @@ export const AddItem = ({ addItem, placeholderText }) => {
     <>
       <input
         type="text"
+        maxLength="20"
         placeholder={placeholderText}
         className="add-input-box"
         value={itemInput}
