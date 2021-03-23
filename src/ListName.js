@@ -3,20 +3,23 @@ import { EditIcon } from "./EditIcon";
 import { ConfirmIcon } from "./ConfirmIcon";
 import { ClearIcon } from "./ClearIcon";
 import { DeleteIcon } from "./DeleteIcon";
+import { useGlobalContext } from "./context";
 
 export const ListName = ({
   selectedList,
   listname,
   listId,
-  selectList,
-  deleteList,
-  editListName,
+  // selectList,
+  // deleteList,
+  // editListName,
 }) => {
+  const { editList, deleteList, selectList } = useGlobalContext();
+
   const [isEdit, setIsEdit] = useState(false);
   const [newListName, setNewListName] = useState("");
 
-  function editList() {
-    if (newListName.trim()) editListName(newListName, listId);
+  function renameList() {
+    if (newListName.trim()) editList(listId, newListName);
     setNewListName("");
     setIsEdit(false);
   }
@@ -50,7 +53,7 @@ export const ListName = ({
       )}
       <div className="icons">
         {isEdit ? (
-          <ConfirmIcon confirmChange={editList} />
+          <ConfirmIcon confirmChange={renameList} />
         ) : (
           <EditIcon edit={() => setIsEdit(!isEdit)} />
         )}

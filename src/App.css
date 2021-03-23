@@ -11,7 +11,7 @@ Variables
   --background-colour: #0debfd;
   --background-gradient: linear-gradient(to top left, #247cff, #0debfd);
   --main-heading-colour: rgb(255, 255, 255);
-  --list-background-colour: rgba(255, 255, 255);
+  --list-background-colour: rgba(255, 255, 255, 0.95);
   --toggle-button-colour: #2c0dfd;
   --delete-all-btn-colour: #ff0037;
   --delete-completed-btn-colour: #9600fa;

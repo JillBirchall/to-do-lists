@@ -5,7 +5,7 @@ export const DarkModeToggle = ({ toggleDarkMode, isDarkMode }) => {
     <div className="dark-mode-toggle">
       <p
         className={isDarkMode ? "inactive" : "active"}
-        onClick={() => toggleDarkMode(true)}
+        onClick={toggleDarkMode}
       >
         Dark Mode
       </p>
@@ -13,7 +13,7 @@ export const DarkModeToggle = ({ toggleDarkMode, isDarkMode }) => {
         className={
           isDarkMode ? "light-mode-btn active" : "light-mode-btn inactive"
         }
-        onClick={() => toggleDarkMode(false)}
+        onClick={toggleDarkMode}
       >
         Light Mode
       </p>

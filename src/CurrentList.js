@@ -1,17 +1,12 @@
 import { ToDoItem } from "./ToDoItem";
 import { AddItem } from "./AddItem";
+import { useGlobalContext } from "./context";
 
-export const CurrentList = ({
-  list,
-  addItemToList,
-  deleteItemFromList,
-  changeItemName,
-  toggleItemChecked,
-  clearAllItems,
-  clearCheckedItems,
-}) => {
-  function addItem(itemName) {
-    if (itemName.trim()) addItemToList(itemName); //Only add a new item if the item contains characters other than white-space
+export const CurrentList = ({ list }) => {
+  const { addItem, deleteCheckedItems, deleteAllItems } = useGlobalContext();
+
+  function addItemToList(itemName) {
+    if (itemName.trim()) addItem(itemName); //Only add a new item if the item contains characters other than white-space
   }
 
   return (
@@ -19,7 +14,11 @@ export const CurrentList = ({
       <h2 className="current-list-name heading">{list.listName}</h2>
       <div className="todolist">
         <div className="add-new-item">
-          <AddItem placeholderText={"Add a new item"} addItem={addItem} />
+          <AddItem
+            placeholderText={"Add a new item"}
+            addNewItem={addItemToList}
+            ariaLabel={"Add a New Item to the List"}
+          />
         </div>
         <div className="list">
           {list.items
@@ -28,11 +27,8 @@ export const CurrentList = ({
               return (
                 <ToDoItem
                   itemName={item.itemName}
-                  checked={item.checked}
+                  isChecked={item.checked}
                   key={item.itemId}
-                  toggleItemChecked={toggleItemChecked}
-                  deleteItem={deleteItemFromList}
-                  changeItem={changeItemName}
                   itemId={item.itemId}
                 />
               );
@@ -48,11 +44,8 @@ export const CurrentList = ({
               return (
                 <ToDoItem
                   itemName={item.itemName}
-                  checked={item.checked}
+                  isChecked={item.checked}
                   key={item.itemId}
-                  toggleItemChecked={toggleItemChecked}
-                  deleteItem={deleteItemFromList}
-                  changeItem={changeItemName}
                   itemId={item.itemId}
                 />
               );
@@ -60,12 +53,12 @@ export const CurrentList = ({
         </div>
       </div>
       <div className="delete-btns">
-        <button className="delete-all-btn btn" onClick={clearAllItems}>
+        <button className="delete-all-btn btn" onClick={deleteAllItems}>
           Clear All
         </button>
         <button
           className="delete-completed-btn btn"
-          onClick={clearCheckedItems}
+          onClick={deleteCheckedItems}
         >
           Clear Completed
         </button>

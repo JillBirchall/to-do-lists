@@ -3,20 +3,15 @@ import { EditIcon } from "./EditIcon";
 import { ConfirmIcon } from "./ConfirmIcon";
 import { ClearIcon } from "./ClearIcon";
 import { DeleteIcon } from "./DeleteIcon";
+import { useGlobalContext } from "./context";
 
-export const ToDoItem = ({
-  itemName,
-  checked,
-  toggleItemChecked,
-  deleteItem,
-  changeItem,
-  itemId,
-}) => {
+export const ToDoItem = ({ itemName, isChecked, itemId }) => {
+  const { editItem, deleteItem, toggleItemChecked } = useGlobalContext();
   const [isEdit, setIsEdit] = useState(false);
   const [newItemName, setNewItemName] = useState("");
 
   function amendItem() {
-    if (newItemName.trim()) changeItem(itemId, newItemName);
+    if (newItemName.trim()) editItem(itemId, newItemName);
     setIsEdit(false);
     setNewItemName("");
   }
@@ -32,7 +27,7 @@ export const ToDoItem = ({
         <input
           type="checkbox"
           onChange={() => toggleItemChecked(itemId)}
-          checked={checked}
+          checked={isChecked}
           className="checkbox"
         ></input>
         <span className="custom-checkbox"></span>

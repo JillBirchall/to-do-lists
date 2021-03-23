@@ -1,11 +1,11 @@
 import React from "react";
 
-export const AddIcon = ({ addItem }) => {
+export const AddIcon = ({ handleAdd, ariaLabel }) => {
   return (
     <button
       className="material-icons add-icon icon"
-      onClick={addItem}
-      aria-label="add item to list"
+      onClick={handleAdd}
+      aria-label={ariaLabel}
     >
       add
     </button>

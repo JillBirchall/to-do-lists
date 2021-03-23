@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { AddIcon } from "./AddIcon";
 
-export const AddItem = ({ addItem, placeholderText }) => {
+export const AddItem = ({ addNewItem, placeholderText, ariaLabel }) => {
   const [itemInput, setItemInput] = useState("");
 
-  function handleAddItem() {
-    addItem(itemInput);
+  function handleAdd() {
+    addNewItem(itemInput);
     setItemInput("");
   }
 
@@ -19,7 +19,7 @@ export const AddItem = ({ addItem, placeholderText }) => {
         value={itemInput}
         onChange={(e) => setItemInput(e.target.value)}
       />
-      <AddIcon addItem={handleAddItem} />
+      <AddIcon handleAdd={handleAdd} ariaLabel={ariaLabel} />
     </>
   );
 };
