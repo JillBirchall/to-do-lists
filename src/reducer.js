@@ -24,6 +24,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         lists: state.lists.filter((list) => list.id !== action.payload),
+        currentListId:
+          action.payload === state.currentListId ? null : state.currentListId,
       };
     case "SELECT_LIST":
       return { ...state, currentListId: action.payload };
@@ -95,6 +97,8 @@ const reducer = (state, action) => {
       return { ...state, isDarkMode: !state.isDarkMode };
     case "TOGGLE_LISTS_MENU":
       return { ...state, isListsMenuOpen: !state.isListsMenuOpen };
+    case "LOAD_LISTS":
+      return { ...state, lists: action.payload };
     default: {
       throw new Error("Action Type Not Found");
     }

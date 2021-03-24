@@ -14,8 +14,6 @@ function App() {
     toggleListsMenu,
   } = useGlobalContext();
 
-  console.log(lists);
-
   return (
     <div className={isDarkMode ? "main-container dark-mode" : "main-container"}>
       <h1 className="main-heading">To Do Lists</h1>
