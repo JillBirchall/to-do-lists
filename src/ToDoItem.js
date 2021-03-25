@@ -5,7 +5,7 @@ import { ClearIcon } from "./ClearIcon";
 import { DeleteIcon } from "./DeleteIcon";
 import { useGlobalContext } from "./context";
 
-export const ToDoItem = ({ itemName, isChecked, itemId }) => {
+export const ToDoItem = ({ itemName, isItemChecked, itemId }) => {
   const { editItem, deleteItem, toggleItemChecked } = useGlobalContext();
   const [isEdit, setIsEdit] = useState(false);
   const [newItemName, setNewItemName] = useState("");
@@ -26,8 +26,8 @@ export const ToDoItem = ({ itemName, isChecked, itemId }) => {
       <label className="checkbox-container">
         <input
           type="checkbox"
-          onChange={() => toggleItemChecked(itemId)}
-          checked={isChecked}
+          onChange={() => toggleItemChecked(itemId, !isItemChecked)}
+          checked={isItemChecked}
           className="checkbox"
         ></input>
         <span className="custom-checkbox"></span>

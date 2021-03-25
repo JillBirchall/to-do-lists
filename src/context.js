@@ -43,8 +43,8 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "DELETE_ITEM", payload: id });
   };
 
-  const toggleItemChecked = (id) => {
-    dispatch({ type: "TOGGLE_ITEM_CHECKED", payload: id });
+  const toggleItemChecked = (id, isChecked) => {
+    dispatch({ type: "TOGGLE_ITEM_CHECKED", payload: { id, isChecked } });
   };
 
   const deleteAllItems = () => {

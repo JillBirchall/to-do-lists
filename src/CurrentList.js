@@ -27,7 +27,7 @@ export const CurrentList = ({ list }) => {
               return (
                 <ToDoItem
                   itemName={item.itemName}
-                  isChecked={item.checked}
+                  isItemChecked={item.checked}
                   key={item.itemId}
                   itemId={item.itemId}
                 />
@@ -44,7 +44,7 @@ export const CurrentList = ({ list }) => {
               return (
                 <ToDoItem
                   itemName={item.itemName}
-                  isChecked={item.checked}
+                  isItemChecked={item.checked}
                   key={item.itemId}
                   itemId={item.itemId}
                 />

@@ -68,8 +68,8 @@ const reducer = (state, action) => {
       tempLists = state.lists.map((list) => {
         if (state.currentListId === list.id) {
           list.items.map((item) => {
-            if (item.itemId === action.payload) {
-              item.checked = !item.checked;
+            if (item.itemId === action.payload.id) {
+              item.checked = action.payload.isChecked;
             }
             return item;
           });
