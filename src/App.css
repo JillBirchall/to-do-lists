@@ -40,8 +40,8 @@ Variables
 }
 
 .dark-mode {
-  --background-colour: #515e5e;
-  --background-gradient: linear-gradient(to top left, #191931, #707794);
+  --background-colour: #424247;
+  --background-gradient: linear-gradient(to top left, #424247, #707794);
   --main-heading-colour: rgb(255, 255, 255);
   --list-background-colour: #193053;
   --toggle-button-colour: #0db1fd;
@@ -124,7 +124,7 @@ List Names Menu
   flex-direction: column;
   box-shadow: var(--container-box-shadow);
   border-radius: 5px;
-  border: var(--container-border);
+  /* border: var(--container-border); */
 }
 
 .list-name-container {
@@ -200,7 +200,7 @@ Current List
   grid-template-areas: "listname listname" "todolist completed" "deletebuttons deletebuttons";
   box-shadow: var(--container-box-shadow);
   border-radius: 5px;
-  border: var(--container-border);
+  /* border: var(--container-border); */
 }
 
 .current-list-name {
@@ -312,26 +312,83 @@ Dark Mode Toggle
 ===============
 */
 
-.dark-mode-toggle {
-  font-size: 1em;
-  margin-bottom: 1%;
+.dark-mode-toggle-container {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.dark-mode-text {
   color: white;
-  font-family: var(--heading-font-family);
 }
 
-.dark-mode-toggle .inactive {
-  color: rgba(255, 255, 255, 0.5);
+.dark-mode-toggle {
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  width: 40px;
 }
 
-.dark-mode-toggle .active:hover {
+.dark-mode-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.dark-mode-toggle-slider {
+  position: absolute;
   cursor: pointer;
-  text-shadow: 0 0 2px rgb(0, 225, 255), 0 0 5px rgb(255, 255, 255);
+  border-radius: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #a0ffef;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
 
-.light-mode-btn {
-  margin-left: 1%;
+.dark-mode-toggle-slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: blue;
+  border-radius: 50%;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+input:checked + .dark-mode-toggle-slider {
+  background-color: #2196f3;
+}
+
+input:focus + .dark-mode-toggle-slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .dark-mode-toggle-slider:before {
+  transform: translateX(16px);
+  -webkit-transform: translateX(16px);
+  -moz-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  -o-transform: translateX(16px);
 }
 
 /*

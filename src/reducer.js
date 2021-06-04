@@ -28,7 +28,11 @@ const reducer = (state, action) => {
           action.payload === state.currentListId ? null : state.currentListId,
       };
     case "SELECT_LIST":
-      return { ...state, currentListId: action.payload };
+      return {
+        ...state,
+        currentListId: action.payload,
+        isListsMenuOpen: false,
+      };
     case "ADD_ITEM":
       tempLists = state.lists.map((list) => {
         if (state.currentListId === list.id) {

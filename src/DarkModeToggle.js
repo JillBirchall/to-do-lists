@@ -1,22 +1,13 @@
 import React from "react";
 
-export const DarkModeToggle = ({ toggleDarkMode, isDarkMode }) => {
+export const DarkModeToggle = ({ toggleDarkMode }) => {
   return (
-    <div className="dark-mode-toggle">
-      <p
-        className={isDarkMode ? "inactive" : "active"}
-        onClick={toggleDarkMode}
-      >
-        Dark Mode
-      </p>
-      <p
-        className={
-          isDarkMode ? "light-mode-btn active" : "light-mode-btn inactive"
-        }
-        onClick={toggleDarkMode}
-      >
-        Light Mode
-      </p>
+    <div className="dark-mode-toggle-container">
+      <p className="dark-mode-text">Dark Mode</p>
+      <label className="dark-mode-toggle">
+        <input type="checkbox" onClick={toggleDarkMode} />
+        <span className="dark-mode-toggle-slider"></span>
+      </label>
     </div>
   );
 };

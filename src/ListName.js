@@ -5,14 +5,7 @@ import { ClearIcon } from "./ClearIcon";
 import { DeleteIcon } from "./DeleteIcon";
 import { useGlobalContext } from "./context";
 
-export const ListName = ({
-  selectedList,
-  listname,
-  listId,
-  // selectList,
-  // deleteList,
-  // editListName,
-}) => {
+export const ListName = ({ selectedList, listname, listId }) => {
   const { editList, deleteList, selectList } = useGlobalContext();
 
   const [isEdit, setIsEdit] = useState(false);
