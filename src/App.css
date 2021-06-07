@@ -6,69 +6,72 @@ Variables
 
 :root {
   --main-heading-font-family: "Antonio", sans-serif;
-  --heading-font-family: "Lato", sans-serif;
-  --list-item-font-family: "Open Sans", sans-serif;
-  --background-colour: #0debfd;
-  --background-gradient: linear-gradient(to top left, #247cff, #0debfd);
-  --main-heading-colour: rgb(255, 255, 255);
-  --list-background-colour: rgba(255, 255, 255, 0.95);
+  --heading-font-family: "Poppins", sans-serif;
+  --list-item-font-family: "Poppins", sans-serif;
+  --dark-mode-slider-colour: #00ffbf;
+  --dark-mode-slider-colour-off: #c0c0c0;
+  --container-border-radius: 20px;
+  --background-colour: #c4f3ff;
+  --main-heading-colour: #0006b5;
+  --list-menu-background-colour: #00cbff;
+  --list-menu-text-colour: #ffffff;
+  --current-list-background-colour: #ffffff;
+  --current-list-text-colour: #0006b5;
+  --divider-colour: #00cbff;
   --toggle-button-colour: #2c0dfd;
   --delete-all-btn-colour: #ff0037;
   --delete-completed-btn-colour: #9600fa;
   --add-icon-colour: #2c0dfd;
-  --list-hover-colour: #0debfd;
+  --list-hover-colour: #ffffff;
   --list-name-hover-colour: #0165fa;
   --list-hover-icon-colour: #2c0dfd;
-  --text-colour: black;
+  --text-colour: #0006b5;
   --editdelete-icon-colour: #2c0dfd;
   --confirmclear-icon-colour: #2c0dfd;
   --confirmclear-icon-hover-colour: #9600fa;
-  --selected-list-colour: #2c0dfd;
+  --selected-list-colour: #000472;
   --selected-list-hover-colour: #2c0dfd;
-  --list-names-menu-colour: rgb(203, 224, 255);
-  --container-box-shadow: 0 0 10px 1px rgb(0, 0, 0, 0.3);
-  --container-border: 1px solid rgb(0, 0, 0);
-  --sub-heading-colour: #2c0dfd;
-  --heading-colour: #00317a;
-  --scrollbar-thumb-colour: #2c0dfd;
-  --scrollbar-thumb-hover-colour: #0debfd;
-  --add-input-box-colour: rgba(110, 238, 255, 0.7);
+  --container-box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.3);
+  --scrollbar-thumb-colour: #0006b5;
+  --scrollbar-thumb-hover-colour: #9600fa;
+  --add-list-input-colour: #ffffff;
+  --add-item-input-colour: #75faff;
   --add-input-border: none;
   --add-input-box-placeholder-colour: rgba(0, 49, 122, 0.5);
+  --checkbox-border-colour: #9600fa;
   --checkbox-checked-colour: #9600fa;
-  --checkbox-hover-background-color: #0debfd;
 }
 
 .dark-mode {
-  --background-colour: #424247;
-  --background-gradient: linear-gradient(to top left, #424247, #707794);
-  --main-heading-colour: rgb(255, 255, 255);
-  --list-background-colour: #193053;
-  --toggle-button-colour: #0db1fd;
-  --delete-all-btn-colour: #ff0040;
-  --delete-completed-btn-colour: #fa00ed;
-  --add-icon-colour: #0db1fd;
-  --list-hover-colour: #0debfd;
-  --list-name-hover-colour: #1a01fa;
-  --list-hover-icon-colour: #2601fa;
-  --text-colour: rgb(255, 255, 255);
-  --editdelete-icon-colour: #0debfd;
-  --confirmclear-icon-colour: #0db1fd;
-  --confirmclear-icon-hover-colour: #fa00ed;
-  --selected-list-colour: #0debfd;
+  --background-colour: #656565;
+  --main-heading-colour: #ffffff;
+  --list-menu-background-colour: #001d4a;
+  --list-menu-text-colour: #ffffff;
+  --current-list-background-colour: #342750;
+  --current-list-text-colour: #ffffff;
+  --divider-colour: #00cbff;
+  --toggle-button-colour: #fa00fa;
+  --delete-all-btn-colour: #ff0037;
+  --delete-completed-btn-colour: #fa00fa;
+  --add-icon-colour: #00ffff;
+  --list-hover-colour: #00ffff;
+  --list-name-hover-colour: #0165fa;
+  --list-hover-icon-colour: #2c0dfd;
+  --text-colour: #ffffff;
+  --editdelete-icon-colour: ##75faff;
+  --confirmclear-icon-colour: #ffffff;
+  --confirmclear-icon-hover-colour: #9600fa;
+  --selected-list-colour: #00ffff;
   --selected-list-hover-colour: #2c0dfd;
-  --list-names-menu-colour: #000852;
-  --container-box-shadow: 0 0 10px 1px rgb(0, 0, 0, 0.3);
-  --container-border: 1px solid rgb(255, 255, 255);
-  --sub-heading-colour: #00e1ff;
-  --heading-colour: #00ff62;
-  --scrollbar-thumb-colour: #0debfd;
-  --scrollbar-thumb-hover-colour: #0db1fd;
-  --add-input-box-colour: rgb(255, 255, 255);
+  --container-box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.3);
+  --scrollbar-thumb-colour: #ffffff;
+  --scrollbar-thumb-hover-colour: #75faff;
+  --add-list-input-colour: #ffffff;
+  --add-item-input-colour: #ffffff;
   --add-input-border: none;
   --add-input-box-placeholder-colour: rgba(0, 49, 122, 0.5);
-  --checkbox-checked-colour: #2c0dfd;
-  --checkbox-hover-background-color: #00e1ff;
+  --checkbox-border-colour: #fa00fa;
+  --checkbox-checked-colour: #fa00fa;
 }
 
 /*
@@ -101,12 +104,46 @@ Main Layout
   width: 100vw;
   padding: 2% 5% 2% 5%;
   overflow-y: hidden;
-  color: var(--text-colour);
 }
 
 .lists-container {
   display: flex;
   height: 90%;
+}
+
+/*
+=============== 
+Headings and Text
+===============
+*/
+
+.main-heading {
+  color: var(--main-heading-colour);
+  margin: 0px 5px;
+  font-family: var(--main-heading-font-family);
+  text-align: center;
+  font-size: 4rem;
+  font-weight: normal;
+}
+
+.heading,
+.sub-heading {
+  text-align: center;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+}
+
+.no-selected-list-warning {
+  color: white;
+  margin: auto;
+  font-size: 1.5em;
+  color: var(--main-heading-colour);
+}
+
+.no-list-warning {
+  color: var(--main-heading-colour);
+  font-family: var(--list-item-font-family);
+  margin: 3%;
 }
 
 /*
@@ -119,12 +156,22 @@ List Names Menu
   width: 30%;
   height: 90%;
   margin-bottom: 0.7rem;
-  background-color: var(--list-background-colour);
+  background-color: var(--list-menu-background-colour);
+  color: var(--list-menu-text-colour);
   display: flex;
   flex-direction: column;
   box-shadow: var(--container-box-shadow);
-  border-radius: 5px;
-  /* border: var(--container-border); */
+  border-radius: var(--container-border-radius);
+  -webkit-border-radius: var(--container-border-radius);
+  -moz-border-radius: var(--container-border-radius);
+  -ms-border-radius: var(--container-border-radius);
+  -o-border-radius: var(--container-border-radius);
+}
+
+.list-names-heading {
+  font-family: var(--heading-font-family);
+  text-align: center;
+  margin-top: 5%;
 }
 
 .list-name-container {
@@ -133,6 +180,7 @@ List Names Menu
   align-items: center;
   justify-content: space-between;
   font-family: var(--list-item-font-family);
+  margin-left: 10px;
 }
 
 .lists {
@@ -162,7 +210,7 @@ List Names Menu
 
 .selected-list {
   color: var(--selected-list-colour);
-  font-weight: bolder;
+  font-weight: 600;
 }
 
 .list-name-container .icons {
@@ -191,7 +239,8 @@ Current List
 .current-list-container {
   width: 70%;
   height: 90%;
-  background-color: var(--list-background-colour);
+  background-color: var(--current-list-background-colour);
+  color: var(--current-list-text-colour);
   margin-left: 0.7rem;
   margin-bottom: 0.7rem;
   display: grid;
@@ -199,17 +248,20 @@ Current List
   grid-template-rows: 1fr 10fr 2fr;
   grid-template-areas: "listname listname" "todolist completed" "deletebuttons deletebuttons";
   box-shadow: var(--container-box-shadow);
-  border-radius: 5px;
-  /* border: var(--container-border); */
+  border-radius: var(--container-border-radius);
+  -webkit-border-radius: var(--container-border-radius);
+  -moz-border-radius: var(--container-border-radius);
+  -ms-border-radius: var(--container-border-radius);
+  -o-border-radius: var(--container-border-radius);
 }
 
 .current-list-name {
   grid-area: listname;
   font-family: var(--heading-font-family);
   text-align: center;
-  margin: 3% 3%;
-  height: 2rem;
-  overflow-x: hidden;
+  margin: 3%;
+  height: 2.5rem;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -226,6 +278,7 @@ Current List
   display: flex;
   flex-direction: column;
   min-height: 0; /* To override min-height: auto which is the default in grids */
+  border-left: 1px solid var(--divider-colour);
 }
 
 .list {
@@ -243,59 +296,6 @@ Current List
   padding: 2% 5%;
 }
 
-.add-new-list {
-  display: flex;
-  margin-top: 1rem;
-  margin-left: 0.7rem;
-  margin-bottom: 1rem;
-}
-
-/*
-=============== 
-Headings and Text
-===============
-*/
-
-.main-heading {
-  color: var(--main-heading-colour);
-  margin: 0px 5px;
-  font-family: var(--main-heading-font-family);
-  text-align: center;
-  font-size: 4rem;
-  font-weight: normal;
-}
-
-.heading,
-.sub-heading {
-  text-align: center;
-  font-family: var(--heading-font-family);
-  font-weight: 400;
-}
-
-.heading {
-  color: var(--heading-colour);
-}
-
-.sub-heading {
-  color: var(--sub-heading-colour);
-}
-
-.list-names-heading {
-  margin-top: 5%;
-}
-
-.no-selected-list-warning {
-  color: white;
-  margin: auto;
-  font-size: 1.5em;
-}
-
-.no-list-warning {
-  color: var(--text-colour);
-  font-family: var(--list-item-font-family);
-  margin: 3%;
-}
-
 .todo-item-text {
   font-family: var(--list-item-font-family);
   font-size: 1rem;
@@ -304,6 +304,13 @@ Headings and Text
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.add-new-list {
+  display: flex;
+  margin-top: 1rem;
+  margin-left: 0.7rem;
+  margin-bottom: 1rem;
 }
 
 /*
@@ -316,12 +323,12 @@ Dark Mode Toggle
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 0 5px 5px 0;
+  margin: 0 10px 10px 0;
 }
 
 .dark-mode-text {
   font-family: var(--heading-font-family);
-  color: white;
+  color: var(--text-colour);
   margin-right: 5px;
 }
 
@@ -346,7 +353,7 @@ Dark Mode Toggle
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #a0ffef;
+  background-color: var(--dark-mode-slider-colour-off);
   transition: 0.4s;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
@@ -365,7 +372,7 @@ Dark Mode Toggle
   width: 15px;
   left: 2px;
   bottom: 2px;
-  background-color: blue;
+  background-color: rgb(255, 255, 255);
   border-radius: 50%;
   transition: 0.4s;
   -webkit-transition: 0.4s;
@@ -379,11 +386,11 @@ Dark Mode Toggle
 }
 
 input:checked + .dark-mode-toggle-slider {
-  background-color: #2196f3;
+  background-color: var(--dark-mode-slider-colour);
 }
 
 input:focus + .dark-mode-toggle-slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 5px 3px var(--dark-mode-slider-colour);
 }
 
 input:checked + .dark-mode-toggle-slider:before {
@@ -422,6 +429,11 @@ Buttons
 .delete-btns .btn {
   height: 2rem;
   width: 12rem;
+  border-radius: 9999px;
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  -ms-border-radius: 9999px;
+  -o-border-radius: 9999px;
 }
 
 .delete-all-btn {
@@ -466,6 +478,7 @@ Icons
 .add-icon {
   color: var(--add-icon-colour);
   font-size: 1.8em;
+  margin-left: 5px;
 }
 
 .edit-icon,
@@ -503,7 +516,7 @@ Icons
 }
 
 .icons .icon {
-  margin: 0 0.3rem;
+  padding: 0 0.3rem;
 }
 
 /*
@@ -537,19 +550,26 @@ Checkbox
   left: 0;
   height: 100%;
   width: 100%;
-  border: 1px solid var(--text-colour);
+  border: 1px solid var(--checkbox-border-colour);
   border-radius: 3px;
-  background-color: white;
-}
-
-.checkbox-container:hover .custom-checkbox,
-.checkbox:focus ~ .custom-checkbox {
-  background-color: var(--checkbox-hover-background-color);
-  border: 2px solid var(--checkbox-hover-background-color);
+  transition: 0.1s ease-in;
+  -webkit-transition: 0.1s ease-in;
+  -moz-transition: 0.1s ease-in;
+  -ms-transition: 0.1s ease-in;
+  -o-transition: 0.1s ease-in;
 }
 
 .checkbox:checked ~ .custom-checkbox {
   background-color: var(--checkbox-checked-colour);
+}
+
+.checkbox-container:hover .custom-checkbox,
+.checkbox:focus ~ .custom-checkbox {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 
 .custom-checkbox:after {
@@ -581,13 +601,25 @@ Text Input Boxes
   align-items: center;
 }
 
+.add-new-list .add-input-box {
+  background-color: var(--add-list-input-colour);
+}
+
+.add-new-item .add-input-box {
+  background-color: var(--add-item-input-colour);
+}
+
 .add-input-box {
-  width: 70%;
-  background-color: var(--add-input-box-colour);
+  width: 60%;
   border: var(--add-input-border);
   font-family: var(--list-item-font-family);
   font-size: 1em;
-  padding: 5px;
+  padding: 7px;
+  border-radius: 9999px;
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  -ms-border-radius: 9999px;
+  -o-border-radius: 9999px;
 }
 
 .edit-input-box {
@@ -653,7 +685,12 @@ Mobile Phone Portrait Layout
     width: 100%;
     height: initial;
     max-height: 85%;
-    background-color: var(--list-names-menu-colour);
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    box-shadow: none;
   }
 
   .current-list-container {
@@ -671,7 +708,9 @@ Mobile Phone Portrait Layout
   }
 
   .completed-items {
-    margin-top: 5%;
+    padding-top: 5%;
+    border-left: none;
+    border-top: 1px solid var(--divider-colour);
   }
 
   .hidden {
