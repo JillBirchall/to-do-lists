@@ -316,17 +316,20 @@ Dark Mode Toggle
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin: 0 5px 5px 0;
 }
 
 .dark-mode-text {
+  font-family: var(--heading-font-family);
   color: white;
+  margin-right: 5px;
 }
 
 .dark-mode-toggle {
   position: relative;
   display: inline-block;
-  height: 24px;
-  width: 40px;
+  height: 19px;
+  width: 30px;
 }
 
 .dark-mode-toggle input {
@@ -358,8 +361,8 @@ Dark Mode Toggle
 .dark-mode-toggle-slider:before {
   content: "";
   position: absolute;
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   left: 2px;
   bottom: 2px;
   background-color: blue;
@@ -384,11 +387,11 @@ input:focus + .dark-mode-toggle-slider {
 }
 
 input:checked + .dark-mode-toggle-slider:before {
-  transform: translateX(16px);
-  -webkit-transform: translateX(16px);
-  -moz-transform: translateX(16px);
-  -ms-transform: translateX(16px);
-  -o-transform: translateX(16px);
+  transform: translateX(11px);
+  -webkit-transform: translateX(11px);
+  -moz-transform: translateX(11px);
+  -ms-transform: translateX(11px);
+  -o-transform: translateX(11px);
 }
 
 /*
@@ -693,10 +696,6 @@ Mobile Phone Portrait Layout
   .no-selected-list-warning {
     margin-top: 50px;
     margin-left: 0;
-  }
-
-  .dark-mode-toggle {
-    margin-bottom: 0.7rem;
   }
 
   .lists-toggle-btn {
