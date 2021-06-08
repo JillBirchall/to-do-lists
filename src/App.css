@@ -469,6 +469,10 @@ Icons
 .icon {
   border: none;
   background-color: transparent;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .icon:hover {
@@ -479,6 +483,19 @@ Icons
   color: var(--add-icon-colour);
   font-size: 1.8em;
   margin-left: 5px;
+  transition: 0.1s;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -ms-transition: 0.1s;
+  -o-transition: 0.1s;
+}
+
+.add-icon:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 
 .edit-icon,
@@ -768,7 +785,7 @@ Mobile Phone Portrait Layout
   }
 
   .expand-arrow {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   .input-box {

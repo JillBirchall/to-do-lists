@@ -3,6 +3,7 @@ import { Lists } from "./Lists";
 import { CurrentList } from "./CurrentList";
 import { DarkModeToggle } from "./DarkModeToggle";
 import { useGlobalContext } from "./context";
+import { MdExpandMore, MdExpandLess } from "react-icons/md";
 
 function App() {
   const {
@@ -21,8 +22,8 @@ function App() {
       <div className="lists-container">
         <button className="lists-toggle-btn btn" onClick={toggleListsMenu}>
           Lists
-          <span className="material-icons icon expand-arrow">
-            {isListsMenuOpen ? "expand_less" : "expand_more"}
+          <span className="icon expand-arrow">
+            {isListsMenuOpen ? <MdExpandLess /> : <MdExpandMore />}
           </span>
         </button>
         <Lists />

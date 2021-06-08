@@ -1,13 +1,14 @@
 import React from "react";
+import { MdEdit } from "react-icons/md";
 
 export const EditIcon = ({ edit }) => {
   return (
     <button
-      className="material-icons icon edit-icon"
+      className="icon edit-icon"
       onClick={edit}
       aria-label="edit the item text"
     >
-      edit
+      <MdEdit />
     </button>
   );
 };
