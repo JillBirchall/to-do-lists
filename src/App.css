@@ -5,9 +5,9 @@ Variables
 */
 
 :root {
-  --main-heading-font-family: "Antonio", sans-serif;
-  --heading-font-family: "Poppins", sans-serif;
-  --list-item-font-family: "Poppins", sans-serif;
+  --main-heading-font-family: "Antonio", Impact, Arial, sans-serif;
+  --heading-font-family: "Poppins", Verdana, Tahoma, sans-serif;
+  --list-item-font-family: "Poppins", Verdana, Tahoma, sans-serif;
   --dark-mode-slider-colour: #00ffbf;
   --dark-mode-slider-colour-off: #c0c0c0;
   --container-border-radius: 20px;
@@ -701,6 +701,11 @@ Mobile Phone Portrait Layout
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: 1fr repeat(2, 5fr) 1fr;
     grid-template-areas: "listname" "todolist" "completed" "deletebuttons";
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
   }
 
   .lists {
