@@ -11,7 +11,7 @@ Variables
   --dark-mode-slider-colour: #00ffbf;
   --dark-mode-slider-colour-off: #c0c0c0;
   --container-border-radius: 20px;
-  --background-colour: #dff9ff;
+  --background-colour: #e1f9ff;
   --main-heading-colour: #0006b5;
   --list-menu-background-colour: #00cbff;
   --list-menu-text-colour: #ffffff;
@@ -103,6 +103,7 @@ Main Layout
   height: 100vh;
   width: 100vw;
   padding: 2% 5% 2% 5%;
+  overflow: hidden;
 }
 
 .lists-container {
