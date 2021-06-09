@@ -11,7 +11,7 @@ Variables
   --dark-mode-slider-colour: #00ffbf;
   --dark-mode-slider-colour-off: #c0c0c0;
   --container-border-radius: 20px;
-  --background-colour: #c4f3ff;
+  --background-colour: #dff9ff;
   --main-heading-colour: #0006b5;
   --list-menu-background-colour: #00cbff;
   --list-menu-text-colour: #ffffff;
@@ -103,7 +103,6 @@ Main Layout
   height: 100vh;
   width: 100vw;
   padding: 2% 5% 2% 5%;
-  overflow-y: hidden;
 }
 
 .lists-container {
@@ -423,12 +422,12 @@ Buttons
   justify-content: space-around;
   align-items: flex-end;
   margin: 0.7rem 0;
-  font-size: 1rem;
 }
 
 .delete-btns .btn {
   height: 2rem;
   width: 12rem;
+  font-size: 1rem;
   border-radius: 9999px;
   -webkit-border-radius: 9999px;
   -moz-border-radius: 9999px;
@@ -691,6 +690,10 @@ Mobile Phone Portrait Layout
 */
 
 @media (orientation: portrait) and (max-width: 750px) {
+  .main-heading {
+    font-size: 2.5rem;
+  }
+
   .lists-container {
     flex-direction: column;
     align-items: center;
@@ -775,13 +778,10 @@ Mobile Phone Portrait Layout
     right: 0;
   }
 
-  .delete-btns {
-    font-size: 1rem;
-  }
-
   .delete-btns .btn {
     height: 1.5rem;
     width: 8rem;
+    font-size: 0.7rem;
   }
 
   .expand-arrow {
@@ -799,9 +799,23 @@ Small Screen Layout
 ===============
 */
 
-@media (max-height: 350px) {
+@media (max-height: 550px) {
+  :root {
+    --container-border-radius: 8px;
+  }
+
   .main-heading {
     font-size: 1.5rem;
+  }
+
+  .list-name {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    width: 70%;
+  }
+
+  .list-name-container .icons {
+    width: 30%;
   }
 
   .current-list-name {
@@ -812,11 +826,38 @@ Small Screen Layout
     font-size: 1rem;
   }
 
+  .todo-item-text {
+    font-size: 0.8rem;
+  }
+
+  .add-input-box {
+    width: 70%;
+    font-size: 0.8em;
+    padding: 3px 3px 3px 5px;
+  }
+
+  .delete-btns .btn {
+    height: 1.5rem;
+    width: 8rem;
+    font-size: 0.7rem;
+  }
+
+  .dark-mode-text {
+    font-size: 0.8rem;
+  }
+
   .dark-mode-toggle {
-    font-size: 0.5rem;
     display: flex;
     justify-content: flex-end;
     color: white;
     font-family: var(--heading-font-family);
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  .icon {
+    font-size: 1rem;
   }
 }
