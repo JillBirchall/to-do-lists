@@ -100,10 +100,11 @@ Main Layout
 .main-container {
   background-color: var(--background-colour);
   background-image: var(--background-gradient);
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   padding: 2% 5% 2% 5%;
   overflow: hidden;
+  position: fixed;
 }
 
 .lists-container {
