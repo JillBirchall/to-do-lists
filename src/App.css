@@ -837,10 +837,6 @@ Small Screen Layout
     font-size: 1.5rem;
   }
 
-  .lists-container {
-    height: 80%;
-  }
-
   .list-name {
     font-size: 0.8rem;
     padding: 0.5rem;
@@ -892,12 +888,5 @@ Small Screen Layout
 
   .icon {
     font-size: 1rem;
-  }
-}
-
-/* Prevent the layout being distorted by the keyboard on landscape touchscreen devices */
-@media (hover: none) and (orientation: landscape) {
-  .main-container {
-    overflow: scroll;
   }
 }

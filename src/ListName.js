@@ -38,6 +38,9 @@ export const ListName = ({ selectedList, listname, listId }) => {
           placeholder={listname}
           value={newListName}
           onChange={(e) => setNewListName(e.target.value)}
+          onKeyUp={(e) => {
+            e.key === "Enter" && renameList(e.target.value);
+          }}
         ></input>
       ) : (
         <div className="list-name" onClick={() => selectList(listId)}>

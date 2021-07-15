@@ -40,6 +40,9 @@ export const ToDoItem = ({ itemName, isItemChecked, itemId }) => {
             placeholder={itemName}
             value={newItemName}
             onChange={(e) => setNewItemName(e.target.value)}
+            onKeyUp={(e) => {
+              e.key === "Enter" && amendItem(e.target.value);
+            }}
           />
         ) : (
           <p>{itemName}</p>
