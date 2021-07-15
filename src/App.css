@@ -21,7 +21,8 @@ Variables
   --toggle-button-colour: #2c0dfd;
   --delete-all-btn-colour: hsl(347, 80%, 50%);
   --delete-completed-btn-colour: hsl(276, 55%, 42%);
-  --add-icon-colour: #2c0dfd;
+  --addlist-icon-colour: #ffffff;
+  --additem-icon-colour: #2c0dfd;
   --list-hover-colour: #ffffff;
   --list-name-hover-colour: #0165fa;
   --list-hover-icon-colour: #2c0dfd;
@@ -29,7 +30,7 @@ Variables
   --editdeleteitem-icon-colour: #2c0dfd;
   --editdeletelist-icon-colour: #ffffff;
   --confirmclear-icon-colour: #2c0dfd;
-  --confirmclear-icon-hover-colour: hsl(276, 55%, 42%);
+  --confirmclear-icon-hover-colour: hsl(300, 80%, 60%);
   --selected-list-colour: #00ffb3;
   --selected-list-hover-colour: #2c0dfd;
   --container-box-shadow: 0px 3px 15px rgb(0, 0, 0, 0.3);
@@ -39,7 +40,8 @@ Variables
   --add-item-input-colour: hsl(182, 75%, 85%);
   --add-input-border: none;
   --add-input-box-placeholder-colour: rgba(0, 49, 122, 0.5);
-  --checkbox-border-colour: hsl(276, 55%, 42%);
+  --checkbox-color: #ffffff;
+  --checkbox-border: 1px solid hsl(276, 55%, 42%);
   --checkbox-checked-colour: hsl(276, 55%, 42%);
 }
 
@@ -54,7 +56,8 @@ Variables
   --toggle-button-colour: hsl(300, 80%, 60%);
   --delete-all-btn-colour: hsl(347, 90%, 50%);
   --delete-completed-btn-colour: hsl(300, 75%, 60%);
-  --add-icon-colour: #00ffff;
+  --addlist-icon-colour: #00ffff;
+  --additem-icon-colour: #00ffff;
   --list-hover-colour: hsl(182, 50%, 50%);
   --list-name-hover-colour: #0165fa;
   --list-hover-icon-colour: #2c0dfd;
@@ -62,7 +65,7 @@ Variables
   --editdeleteitem-icon-colour: #ffffff;
   --editdeletelist-icon-colour: #75faff;
   --confirmclear-icon-colour: #ffffff;
-  --confirmclear-icon-hover-colour: #9600fa;
+  --confirmclear-icon-hover-colour: hsl(300, 80%, 60%);
   --selected-list-colour: #00ffff;
   --selected-list-hover-colour: #2c0dfd;
   --container-box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.3);
@@ -72,7 +75,8 @@ Variables
   --add-item-input-colour: #ffffff;
   --add-input-border: none;
   --add-input-box-placeholder-colour: rgba(0, 49, 122, 0.5);
-  --checkbox-border-colour: hsl(300, 75%, 60%);
+  --checkbox-color: #ffffff;
+  --checkbox-border: none;
   --checkbox-checked-colour: hsl(300, 75%, 60%);
 }
 
@@ -483,7 +487,6 @@ Icons
 }
 
 .add-icon {
-  color: var(--add-icon-colour);
   font-size: 1.8em;
   margin-left: 5px;
   transition: 0.1s;
@@ -491,6 +494,14 @@ Icons
   -moz-transition: 0.1s;
   -ms-transition: 0.1s;
   -o-transition: 0.1s;
+}
+
+.add-new-list .add-icon {
+  color: var(--addlist-icon-colour);
+}
+
+.add-new-item .add-icon {
+  color: var(--additem-icon-colour);
 }
 
 .add-icon:hover {
@@ -575,13 +586,14 @@ Checkbox
   left: 0;
   height: 100%;
   width: 100%;
-  border: 1px solid var(--checkbox-border-colour);
+  border: var(--checkbox-border);
   border-radius: 3px;
   transition: 0.1s ease-in;
   -webkit-transition: 0.1s ease-in;
   -moz-transition: 0.1s ease-in;
   -ms-transition: 0.1s ease-in;
   -o-transition: 0.1s ease-in;
+  background-color: var(--checkbox-color);
 }
 
 .checkbox:checked ~ .custom-checkbox {
