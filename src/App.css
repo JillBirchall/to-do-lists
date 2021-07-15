@@ -8,8 +8,8 @@ Variables
   --main-heading-font-family: "Antonio", Impact, Arial, sans-serif;
   --heading-font-family: "Poppins", Verdana, Tahoma, sans-serif;
   --list-item-font-family: "Poppins", Verdana, Tahoma, sans-serif;
-  --dark-mode-slider-colour: hsl(165, 80%, 50%);
-  --dark-mode-slider-colour-off: #c0c0c0;
+  --dark-mode-slider-colour: hsl(182, 100%, 50%);
+  --dark-mode-slider-colour-off: #b5bef7;
   --container-border-radius: 20px;
   --background-colour: #f5f9fa;
   --main-heading-colour: #0006b5;
@@ -26,7 +26,8 @@ Variables
   --list-name-hover-colour: #0165fa;
   --list-hover-icon-colour: #2c0dfd;
   --text-colour: #0006b5;
-  --editdelete-icon-colour: #ffffff;
+  --editdeleteitem-icon-colour: #2c0dfd;
+  --editdeletelist-icon-colour: #ffffff;
   --confirmclear-icon-colour: #2c0dfd;
   --confirmclear-icon-hover-colour: hsl(276, 55%, 42%);
   --selected-list-colour: #00ffb3;
@@ -58,7 +59,8 @@ Variables
   --list-name-hover-colour: #0165fa;
   --list-hover-icon-colour: #2c0dfd;
   --text-colour: #ffffff;
-  --editdelete-icon-colour: ##75faff;
+  --editdeleteitem-icon-colour: #ffffff;
+  --editdeletelist-icon-colour: #75faff;
   --confirmclear-icon-colour: #ffffff;
   --confirmclear-icon-hover-colour: #9600fa;
   --selected-list-colour: #00ffff;
@@ -504,9 +506,14 @@ Icons
   opacity: 0.5;
 }
 
-.edit-icon,
-.delete-icon {
-  color: var(--editdelete-icon-colour);
+.list-name-container .edit-icon,
+.list-name-container .delete-icon {
+  color: var(--editdeletelist-icon-colour);
+}
+
+.todo-item-container .edit-icon,
+.todo-item-container .delete-icon {
+  color: var(--editdeleteitem-icon-colour);
 }
 
 .edit-icon:hover,
