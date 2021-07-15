@@ -18,6 +18,9 @@ export const AddItem = ({ addNewItem, placeholderText, ariaLabel }) => {
         className="add-input-box"
         value={itemInput}
         onChange={(e) => setItemInput(e.target.value)}
+        onKeyUp={(e) => {
+          e.key === "Enter" && handleAdd();
+        }}
       />
       <AddIcon handleAdd={handleAdd} ariaLabel={ariaLabel} />
     </>
