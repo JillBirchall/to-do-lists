@@ -34,8 +34,8 @@ Variables
   --selected-list-colour: #00ffb3;
   --selected-list-hover-colour: #2c0dfd;
   --container-box-shadow: 0px 3px 15px rgb(0, 0, 0, 0.3);
-  --scrollbar-thumb-colour: #0006b5;
-  --scrollbar-thumb-hover-colour: hsl(276, 55%, 42%);
+  --scrollbar-thumb-colour: hsl(192, 70%, 50%);
+  --scrollbar-thumb-hover-colour: hsl(238, 100%, 35%);
   --add-list-input-colour: #ffffff;
   --add-item-input-colour: hsl(182, 75%, 85%);
   --add-input-border: none;
@@ -162,7 +162,7 @@ List Names Menu
 .list-names-container {
   width: 30%;
   height: 90%;
-  margin-bottom: 0.7rem;
+  /* margin-bottom: 0.7rem; */
   background-color: var(--list-menu-background-colour);
   color: var(--list-menu-text-colour);
   display: flex;
@@ -249,7 +249,7 @@ Current List
   background-color: var(--current-list-background-colour);
   color: var(--current-list-text-colour);
   margin-left: 0.7rem;
-  margin-bottom: 0.7rem;
+  /* margin-bottom: 0.7rem; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr 10fr 2fr;
@@ -829,8 +829,16 @@ Small Screen Layout
     --container-border-radius: 8px;
   }
 
+  .main-container {
+    padding: 1% 2% 0 2%;
+  }
+
   .main-heading {
     font-size: 1.5rem;
+  }
+
+  .lists-container {
+    height: 80%;
   }
 
   .list-name {
@@ -884,5 +892,12 @@ Small Screen Layout
 
   .icon {
     font-size: 1rem;
+  }
+}
+
+/* Prevent the layout being distorted by the keyboard on landscape touchscreen devices */
+@media (hover: none) and (orientation: landscape) {
+  .main-container {
+    overflow: scroll;
   }
 }
