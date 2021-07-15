@@ -9,17 +9,16 @@ export const ListName = ({ selectedList, listname, listId }) => {
   const { editList, deleteList, selectList } = useGlobalContext();
 
   const [isEdit, setIsEdit] = useState(false);
-  const [newListName, setNewListName] = useState("");
+  const [newListName, setNewListName] = useState(listname);
 
   function renameList() {
     if (newListName.trim()) editList(listId, newListName);
-    setNewListName("");
     setIsEdit(false);
   }
 
   function resetListNameEdit() {
     setIsEdit(false);
-    setNewListName("");
+    setNewListName(listname);
   }
 
   return (

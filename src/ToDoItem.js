@@ -8,17 +8,16 @@ import { useGlobalContext } from "./context";
 export const ToDoItem = ({ itemName, isItemChecked, itemId }) => {
   const { editItem, deleteItem, toggleItemChecked } = useGlobalContext();
   const [isEdit, setIsEdit] = useState(false);
-  const [newItemName, setNewItemName] = useState("");
+  const [newItemName, setNewItemName] = useState(itemName);
 
   function amendItem() {
     if (newItemName.trim()) editItem(itemId, newItemName);
     setIsEdit(false);
-    setNewItemName("");
   }
 
   function clearEdit() {
     setIsEdit(false);
-    setNewItemName("");
+    setNewItemName(itemName);
   }
 
   return (
