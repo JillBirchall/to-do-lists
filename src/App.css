@@ -195,24 +195,8 @@ List Names Menu
   overflow-y: scroll;
 }
 
-.list-name-container:hover {
-  background-color: var(--list-hover-colour);
-}
-
-.list-name-container:hover .icon {
-  color: var(--list-hover-icon-colour);
-}
-
-.list-name-container:not(.selected-list):hover {
-  color: var(--list-name-hover-colour);
-}
-
 .lists-toggle-btn {
   display: none;
-}
-
-.list-name:hover {
-  cursor: pointer;
 }
 
 .selected-list {
@@ -224,10 +208,6 @@ List Names Menu
   width: 20%;
 }
 
-.list-name-container.selected-list:hover {
-  color: var(--selected-list-hover-colour);
-}
-
 .list-name {
   width: 80%;
   padding: 1rem;
@@ -235,6 +215,10 @@ List Names Menu
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.list-name:hover {
+  cursor: pointer;
 }
 
 /*
@@ -451,18 +435,6 @@ Buttons
   background-color: var(--delete-completed-btn-colour);
 }
 
-.delete-all-btn:hover {
-  color: var(--delete-all-btn-colour);
-  background-color: white;
-  border: 2px solid var(--delete-all-btn-colour);
-}
-
-.delete-completed-btn:hover {
-  color: var(--delete-completed-btn-colour);
-  background-color: white;
-  border: 2px solid var(--delete-completed-btn-colour);
-}
-
 /*
 =============== 
 Icons
@@ -504,14 +476,6 @@ Icons
   color: var(--additem-icon-colour);
 }
 
-.add-icon:hover {
-  transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
-}
-
 .edit-icon,
 .delete-icon {
   opacity: 0.5;
@@ -527,28 +491,21 @@ Icons
   color: var(--editdeleteitem-icon-colour);
 }
 
-.edit-icon:hover,
-.delete-icon:hover {
+.list-name-container .edit-icon:focus,
+.list-name-container .delete-icon:focus {
   opacity: 1;
+  outline-color: var(--editdeletelist-icon-colour);
 }
 
-.edit-icon:focus,
-.delete-icon:focus {
+.todo-item-container .edit-icon:focus,
+.todo-item-container .delete-icon:focus {
   opacity: 1;
-  outline-color: var(--editdelete-icon-colour);
+  outline-color: var(--editdeleteitem-icon-colour);
 }
 
 .confirm-icon,
 .clear-icon {
   color: var(--confirmclear-icon-colour);
-}
-
-.confirm-icon:hover,
-.clear-icon:hover,
-.confirm-icon:focus,
-.clear-icon:focus {
-  color: var(--confirmclear-icon-hover-colour);
-  outline-color: var(--confirmclear-icon-colour);
 }
 
 .icons .icon {
@@ -598,15 +555,6 @@ Checkbox
 
 .checkbox:checked ~ .custom-checkbox {
   background-color: var(--checkbox-checked-colour);
-}
-
-.checkbox-container:hover .custom-checkbox,
-.checkbox:focus ~ .custom-checkbox {
-  transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
 }
 
 .custom-checkbox:after {
@@ -687,25 +635,86 @@ Text Input Boxes
 
 /*
 =============== 
-Scroll Bar 
-NOT SUPPORTED IN FIREFOX AND IE
+Hover and Scroll Effects for non-touchscreen devices only
 ===============
 */
-::-webkit-scrollbar {
-  width: 10px;
-}
 
-::-webkit-scrollbar-track {
-  background: var(--list-background-colour);
-}
+@media (hover: hover) {
+  .list-name-container:hover {
+    background-color: var(--list-hover-colour);
+  }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb-colour);
-  border-radius: 20px;
-}
+  .list-name-container:hover .icon {
+    color: var(--list-hover-icon-colour);
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-thumb-hover-colour);
+  .list-name-container:not(.selected-list):hover {
+    color: var(--list-name-hover-colour);
+  }
+
+  .list-name-container.selected-list:hover {
+    color: var(--selected-list-hover-colour);
+  }
+
+  .delete-all-btn:hover {
+    color: var(--delete-all-btn-colour);
+    background-color: white;
+    border: 2px solid var(--delete-all-btn-colour);
+  }
+
+  .delete-completed-btn:hover {
+    color: var(--delete-completed-btn-colour);
+    background-color: white;
+    border: 2px solid var(--delete-completed-btn-colour);
+  }
+
+  .add-icon:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
+
+  .edit-icon:hover,
+  .delete-icon:hover {
+    opacity: 1;
+  }
+
+  .confirm-icon:hover,
+  .clear-icon:hover,
+  .confirm-icon:focus,
+  .clear-icon:focus {
+    color: var(--confirmclear-icon-hover-colour);
+    outline-color: var(--confirmclear-icon-colour);
+  }
+
+  .checkbox-container:hover .custom-checkbox,
+  .checkbox:focus ~ .custom-checkbox {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
+
+  /* Scroll Bar - NOT SUPPORTED IN FIREFOX AND IE */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--list-background-colour);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-colour);
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover-colour);
+  }
 }
 
 /*
@@ -714,7 +723,13 @@ Mobile Phone Portrait Layout
 ===============
 */
 
-@media (orientation: portrait) and (max-width: 750px) {
+@media (orientation: portrait) and (max-width: 500px) {
+  .todo-item-text {
+    width: 60%;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 999px) {
   .main-heading {
     font-size: 2.5rem;
   }
@@ -818,6 +833,12 @@ Mobile Phone Portrait Layout
   }
 }
 
+@media (orientation: portrait) and (min-width: 1000px) and (max-width: 1250px) {
+  .todo-item-text {
+    width: 50%;
+  }
+}
+
 /*
 =============== 
 Small Screen Layout
@@ -857,6 +878,10 @@ Small Screen Layout
 
   .todo-item-text {
     font-size: 0.8rem;
+  }
+
+  .todo-item-text {
+    width: 50%;
   }
 
   .add-input-box {
