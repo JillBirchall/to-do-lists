@@ -233,7 +233,6 @@ Current List
   background-color: var(--current-list-background-colour);
   color: var(--current-list-text-colour);
   margin-left: 0.7rem;
-  /* margin-bottom: 0.7rem; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr 10fr 2fr;
@@ -276,7 +275,6 @@ Current List
   margin-top: 1rem;
   height: 90%;
   overflow-y: scroll;
-  /* -webkit-overflow-scrolling: touch; */
 }
 
 .todo-item-container {
@@ -681,6 +679,8 @@ Hover and Scroll Effects for non-touchscreen devices only
     opacity: 1;
   }
 
+  .list-name-container .confirm-icon:hover,
+  .list-name-container .clear-icon:hover,
   .confirm-icon:hover,
   .clear-icon:hover,
   .confirm-icon:focus,
@@ -880,10 +880,6 @@ Small Screen Layout
     font-size: 0.8rem;
   }
 
-  .todo-item-text {
-    width: 50%;
-  }
-
   .add-input-box {
     width: 70%;
     font-size: 0.8em;
@@ -913,5 +909,19 @@ Small Screen Layout
 
   .icon {
     font-size: 1rem;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 1250px) {
+  .list-name {
+    width: 60%;
+  }
+
+  .todo-item-text {
+    width: 40%;
+  }
+
+  .edit-input-box {
+    width: 50%;
   }
 }
