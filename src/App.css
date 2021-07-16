@@ -106,12 +106,12 @@ Main Layout
 .main-container {
   background-color: var(--background-colour);
   background-image: var(--background-gradient);
+  min-height: 100vh;
   height: 100%;
   width: 100vw;
   padding: 2% 5% 2% 5%;
   overflow: hidden;
   position: fixed;
-  z-index: -1;
 }
 
 .lists-container {
