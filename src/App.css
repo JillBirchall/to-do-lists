@@ -260,7 +260,8 @@ Current List
   grid-area: todolist;
   display: flex;
   flex-direction: column;
-  min-height: 0; /* To override min-height: auto which is the default in grids */
+  min-height: 50px; /* To override min-height: auto which is the default in grids */
+  z-index: 1;
 }
 
 .completed-items {
@@ -269,6 +270,7 @@ Current List
   flex-direction: column;
   min-height: 0; /* To override min-height: auto which is the default in grids */
   border-left: 1px solid var(--divider-colour);
+  z-index: 1;
 }
 
 .list {
