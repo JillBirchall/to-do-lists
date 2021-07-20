@@ -1,3 +1,13 @@
+# To Do Lists App
+
+A To Do List app in which multiple lists can be created. Each list can renamed or deleted. 
+
+The items in each list can be checked/unchecked, edited or deleted. The list is split into outstanding items and completed items, based on whether or not an item has been checked. All of the items on a list can be deleted, as well as just the completed items.
+
+The app has a dark mode option which can be toggled on or off. 
+
+The lists are saved to local storage. I appreciate that this is not a secure way to store data, and ideally this would be saved to a back-end with a user account, however this is beyond the scope of this front-end project.  
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
