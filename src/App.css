@@ -109,16 +109,15 @@ Main Layout
   height: 100%;
   width: 100vw;
   padding: 2% 5% 2% 5%;
-  position: fixed;
   overflow: hidden;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
 }
 
 .lists-container {
   display: flex;
-  height: 80%;
-  width: 90%;
-  position: absolute;
-  bottom: 0;
+  height: 90%;
 }
 
 /*
