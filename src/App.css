@@ -111,6 +111,8 @@ Main Layout
   padding: 2% 5% 2% 5%;
   overflow: hidden;
   position: fixed;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .lists-container {
@@ -162,7 +164,6 @@ List Names Menu
 .list-names-container {
   width: 30%;
   height: 90%;
-  /* margin-bottom: 0.7rem; */
   background-color: var(--list-menu-background-colour);
   color: var(--list-menu-text-colour);
   display: flex;
@@ -261,7 +262,6 @@ Current List
   display: flex;
   flex-direction: column;
   min-height: 120px; /* To override min-height: auto which is the default in grids */
-  z-index: 1;
 }
 
 .completed-items {
@@ -270,7 +270,6 @@ Current List
   flex-direction: column;
   min-height: 120px; /* To override min-height: auto which is the default in grids */
   border-left: 1px solid var(--divider-colour);
-  z-index: 1;
 }
 
 .list {
