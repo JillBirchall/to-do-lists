@@ -111,8 +111,8 @@ Main Layout
   padding: 2% 5% 2% 5%;
   overflow: hidden;
   position: fixed;
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: column;
 }
 
 .lists-container {
