@@ -12,6 +12,8 @@ The lists are saved to local storage. I appreciate that this is not a secure way
 
 It was challenging to make this layout fully responsive across different screen sizes. It is also one of the only projects I have done where I created the CSS for desktop first. I had to find a way for the list of to do list names to fit neatly on a mobile screen (without having to scroll too far down to view the actual list), which I achieved by adding a drop-down menu. I also had issues of the layout becoming to squished on smaller screens, so I added CSS to handle text overflow, and reduced the width of the item names on smaller screens.
 
+I also had issues with the soft keyboard on Android devices. When the keyboard was opened to input text, the entire layout became squished, and buttons and text overflowed their containers. I eventually solved this by setting the overflow of the containers to hidden, which not only prevented the contents from overflowing, but also seemed to stop the container itself from being resized. 
+
 ## Icon Attributions
 
 The icons used in this app are Google Material Design Icons.
