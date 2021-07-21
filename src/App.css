@@ -150,9 +150,10 @@ Headings and Text
 }
 
 .no-list-warning {
-  color: var(--main-heading-colour);
+  color: var(--list-menu-text-colour);
   font-family: var(--list-item-font-family);
   margin: 3%;
+  text-align: center;
 }
 
 /*
