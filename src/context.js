@@ -82,6 +82,14 @@ const AppProvider = ({ children }) => {
     localStorage.setItem(LOCAL_STORAGE_KEY_LISTS, JSON.stringify(state.lists));
   }, [state.lists]);
 
+  //Save dark mode settings each time it changes
+  useEffect(() => {
+    localStorage.setItem(
+      LOCAL_STORAGE_DARK_MODE_KEY,
+      JSON.stringify(state.isDarkMode)
+    );
+  }, [state.isDarkMode]);
+
   return (
     <AppContext.Provider
       value={{

@@ -18,7 +18,7 @@ function App() {
   return (
     <div className={isDarkMode ? "main-container dark-mode" : "main-container"}>
       <h1 className="main-heading">To Do Lists</h1>
-      <DarkModeToggle toggleDarkMode={toggleDarkMode} />
+      <DarkModeToggle toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
       <div className="lists-container">
         <button className="lists-toggle-btn btn" onClick={toggleListsMenu}>
           Lists
